@@ -1,13 +1,56 @@
-<!doctype html>
-<html lang="en" data-beasties-container>
-<head>
-  <meta charset="utf-8">
-  <title>Blacksmith of Lenai</title>
-  <base href="/BlacksmithOfLenai/">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="favicon.ico" rel="icon" type="image/x-icon">
+<!DOCTYPE html>
+<html lang="de" data-beasties-container>
+<head><base href="/BlacksmithOfLenai/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive 1600x900 Container</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      overflow: hidden; /* verhindert Scrollen */
+    }
+
+    .container-wrapper {
+      /* maximale Breite/Höhe des Viewports berücksichtigen */
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container {
+      width: 1600px; /* Zielgröße */
+      height: 900px; /* Zielgröße */
+      border: 1px solid yellow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* Skalierung, wenn Viewport kleiner ist */
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Bild vollständig sichtbar */
+    }
+  </style>
 <style>html,body{margin:0;padding:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;background-color:#000}</style><link rel="stylesheet" href="styles-DIVN4NFO.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-DIVN4NFO.css"></noscript></head>
 <body>
-<app-root></app-root>
+<div class="container-wrapper">
+  <div class="image-container">
+    <img src="red_foliage_autumn-wallpaper-1600x900.jpg" alt="Beispielbild">
+  </div>
+</div>
 <script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-JN3OVPG5.js" type="module"></script></body>
 </html>
