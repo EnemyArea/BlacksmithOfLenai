@@ -35,6 +35,9 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/blacksmith-of-lenai-app",
+              "index": "src/index.html",
+              "baseHref": "/BlacksmithOfLenai/",
               "budgets": [
                 {
                   "type": "initial",

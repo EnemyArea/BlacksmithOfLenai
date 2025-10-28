@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gitpage": "npx angular-cli-ghpages --dir=dist/blacksmith-of-lenai-app/browser"
   },
   "prettier": {
     "printWidth": 100,
