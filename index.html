@@ -3,54 +3,94 @@
 <head><base href="/BlacksmithOfLenai/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive 1600x900 Container</title>
+  <title>Fixe Karte - Gleiches Sichtfeld</title>
   <style>
     html, body {
       margin: 0;
-      padding: 0;
-      width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: black;
-      overflow: hidden; /* verhindert Scrollen */
-    }
-
-    .container-wrapper {
-      /* maximale Breite/Höhe des Viewports berücksichtigen */
-      width: 100%;
-      height: 100%;
+      overflow: hidden;
+      background: #111;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .image-container {
-      width: 1600px; /* Zielgröße */
-      height: 900px; /* Zielgröße */
-      border: 1px solid yellow;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      /* Skalierung, wenn Viewport kleiner ist */
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Bild vollständig sichtbar */
+    canvas {
+      background: #222;
+      display: block;
     }
   </style>
 <style>html,body{margin:0;padding:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;background-color:#000}</style><link rel="stylesheet" href="styles-DIVN4NFO.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-DIVN4NFO.css"></noscript></head>
 <body>
-<div class="container-wrapper">
-  <div class="image-container">
-    <img src="red_foliage_autumn-wallpaper-1600x900.jpg" alt="Beispielbild">
-  </div>
-</div>
+<canvas id="game"></canvas>
+
+<script>
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+
+  // Feste Weltgröße
+  const world = {width: 2000, height: 2000};
+
+  // Kamera (fixer Ausschnitt in Weltkoordinaten)
+  const camera = {x: 800, y: 800, width: 400, height: 400};
+
+  function resizeCanvas() {
+    // Canvas füllt Bildschirm, aber wir berechnen das Seitenverhältnis der Kamera
+    const aspect = camera.width / camera.height;
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+
+    // Letterboxing, damit das Seitenverhältnis gleich bleibt
+    if (w / h > aspect) {
+      w = h * aspect;
+    } else {
+      h = w / aspect;
+    }
+
+    canvas.width = w;
+    canvas.height = h;
+    draw();
+  }
+
+  function draw() {
+    ctx.save();
+
+    // Maßstab: wie viele Pixel pro Welt-Einheit?
+    const scaleX = canvas.width / camera.width;
+    const scaleY = canvas.height / camera.height;
+    ctx.scale(scaleX, scaleY);
+    ctx.translate(-camera.x, -camera.y);
+
+    // ==== Zeichne Welt ====
+    ctx.fillStyle = "#333";
+    ctx.fillRect(0, 0, world.width, world.height);
+
+    // Gitter (alle 100 Einheiten)
+    ctx.strokeStyle = "#555";
+    for (let x = 0; x <= world.width; x += 100) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, world.height);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= world.height; y += 100) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(world.width, y);
+      ctx.stroke();
+    }
+
+    // Markiere Kamera-Mitte
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(camera.x + camera.width / 2, camera.y + camera.height / 2, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+</script>
 <script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-JN3OVPG5.js" type="module"></script></body>
 </html>
