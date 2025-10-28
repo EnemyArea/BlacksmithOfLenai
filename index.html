@@ -1,96 +1,13 @@
-<!DOCTYPE html>
-<html lang="de" data-beasties-container>
-<head><base href="/BlacksmithOfLenai/">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fixe Karte - Gleiches Sichtfeld</title>
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      overflow: hidden;
-      background: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    canvas {
-      background: #222;
-      display: block;
-    }
-  </style>
-<style>html,body{margin:0;padding:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;background-color:#000}</style><link rel="stylesheet" href="styles-DIVN4NFO.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-DIVN4NFO.css"></noscript></head>
+<!doctype html>
+<html lang="en" data-beasties-container>
+<head>
+  <meta charset="utf-8">
+  <title>Angular App Title</title>
+  <base href="/BlacksmithOfLenai/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>@layer properties;@layer theme,base,components,utilities;@layer theme{:root{--font-sans:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--color-red-500:oklch(63.7% .237 25.331);--color-blue-500:oklch(62.3% .214 259.815);--spacing:.25rem;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1);--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before{box-sizing:border-box;margin:0;padding:0;border:0 solid}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}}@layer utilities{}html,body{margin:0;padding:0;width:100%;height:100%}@property --tw-rotate-x{syntax:"*";inherits:false;}@property --tw-rotate-y{syntax:"*";inherits:false;}@property --tw-rotate-z{syntax:"*";inherits:false;}@property --tw-skew-x{syntax:"*";inherits:false;}@property --tw-skew-y{syntax:"*";inherits:false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after{--tw-rotate-x:initial;--tw-rotate-y:initial;--tw-rotate-z:initial;--tw-skew-x:initial;--tw-skew-y:initial}}}</style><link rel="stylesheet" href="styles-3MFZITAI.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-3MFZITAI.css"></noscript></head>
 <body>
-<canvas id="game"></canvas>
-
-<script>
-  const canvas = document.getElementById("game");
-  const ctx = canvas.getContext("2d");
-
-  // Feste Weltgröße
-  const world = {width: 1600, height: 900};
-
-  // Kamera (fixer Ausschnitt in Weltkoordinaten)
-  const camera = {x: 0, y: 0, width: 1600, height: 900};
-
-  function resizeCanvas() {
-    // Canvas füllt Bildschirm, aber wir berechnen das Seitenverhältnis der Kamera
-    const aspect = camera.width / camera.height;
-    let w = window.innerWidth;
-    let h = window.innerHeight;
-
-    // Letterboxing, damit das Seitenverhältnis gleich bleibt
-    if (w / h > aspect) {
-      w = h * aspect;
-    } else {
-      h = w / aspect;
-    }
-
-    canvas.width = w;
-    canvas.height = h;
-    draw();
-  }
-
-  function draw() {
-    ctx.save();
-
-    // Maßstab: wie viele Pixel pro Welt-Einheit?
-    const scaleX = canvas.width / camera.width;
-    const scaleY = canvas.height / camera.height;
-    ctx.scale(scaleX, scaleY);
-    ctx.translate(-camera.x, -camera.y);
-
-    // ==== Zeichne Welt ====
-    ctx.fillStyle = "#333";
-    ctx.fillRect(0, 0, world.width, world.height);
-
-    // Gitter (alle 100 Einheiten)
-    ctx.strokeStyle = "#555";
-    for (let x = 0; x <= world.width; x += 100) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, world.height);
-      ctx.stroke();
-    }
-    for (let y = 0; y <= world.height; y += 100) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(world.width, y);
-      ctx.stroke();
-    }
-
-    // Markiere Kamera-Mitte
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.arc(camera.x + camera.width / 2, camera.y + camera.height / 2, 5, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.restore();
-  }
-
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-</script>
-<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-JN3OVPG5.js" type="module"></script></body>
+<app-root></app-root>
+<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-K2DCTGQK.js" type="module"></script></body>
 </html>
