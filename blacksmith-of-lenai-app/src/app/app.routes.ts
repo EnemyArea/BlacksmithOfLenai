@@ -1,6 +1,6 @@
-import {Routes} from '@angular/router';
-import {Home} from './features/home';
-import {Users} from './features/users';
+import { Routes } from '@angular/router';
+import { Home } from './features/home';
+import { Users } from './features/users';
 
 export const routes: Routes = [
   {
@@ -10,5 +10,5 @@ export const routes: Routes = [
   {
     path: 'users',
     component: Users,
-  }
+  },
 ];
