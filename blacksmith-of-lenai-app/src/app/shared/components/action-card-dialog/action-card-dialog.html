@@ -1,0 +1,32 @@
+<dialog #baseDialog class="modal">
+  <div class="modal-box">
+    <div class="alert alert-info alert-soft text-lg max-w-4xl flex flex-col">
+      <figure>
+        <img src="{{ figure }}" alt="img" class="rounded-2xl" />
+      </figure>
+      {{ dialogText }}
+    </div>
+    <form method="dialog">
+      @if (secondaryBtnLabel && primaryBtnLabel) {
+        <div class="flex justify-between mt-4">
+          @if (primaryBtnLabel) {
+            <button class="btn btn-primary pl-8 pr-8">
+              {{ primaryBtnLabel }}️
+            </button>
+          }
+          @if (secondaryBtnLabel) {
+            <button class="btn btn-secondary pl-8 pr-8">
+              {{ secondaryBtnLabel }}
+            </button>
+          }
+        </div>
+      } @else {
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn">{{ primaryBtnLabel }}️</button>
+          </form>
+        </div>
+      }
+    </form>
+  </div>
+</dialog>

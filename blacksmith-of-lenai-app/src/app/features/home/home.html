@@ -1,127 +1,60 @@
 <div class="flex flex-col gap-4 pb-4">
-  <div class="collapse collapse-arrow">
-    <input type="checkbox" checked />
-    <div class="collapse-title text-2xl font-bold w-full border-b mb-4 p-2">
-      Umfeld erkunden - Finsterer Wald
-    </div>
-    <div class="collapse-content">
-      <div
-        class="alert alert-info alert-soft text-lg max-w-4xl flex flex-wrap lg:flex-nowrap flex-row">
-        <div class="bg-base-100 mask-radial-from-success">
-          <img src="fantasy-forest.png" alt="forest" />
-        </div>
-        Nebel legt sich über den düsteren Wald, während fern das Heulen eines
-        Wolfes erklingt. Zwischen moosbewachsenen Wurzeln und alten Steinen
-        suchst du nach seltenen Kräutern – wissend, dass in der Dunkelheit mehr
-        lauert als nur Pflanzen. Jeder Schritt könnte dein letzter sein… oder
-        dich zu einem Geheimnis führen, das seit Jahrhunderten verborgen liegt.
-      </div>
-    </div>
-  </div>
-
+  <app-collapsible-teaser />
   <h2 class="mb-4 w-full border-b pb-2 pl-2">In der Nähe entdeckst du....</h2>
 
-  <dialog id="boardDialog" class="modal">
-    <div class="modal-box">
-      <div class="alert alert-info alert-soft text-lg max-w-4xl flex flex-col">
-        <figure>
-          <img src="schild.jpg" alt="monster" class="rounded-2xl" />
-        </figure>
+  <app-action-card-dialog
+    #shieldDialog
+    figure="schild.jpg"
+    dialogText="
         Der Wald lebt – seine Geheimnisse verstecken sich hinter jedem
         moosbewachsenen Stein. Wage dich vor, Sammler, doch sei auf alles
-        gefasst, was im Dunkeln lauert.
-      </div>
-      <div class="modal-action">
-        <form method="dialog">
-          <button class="btn">Schließen</button>
-        </form>
-      </div>
-    </div>
-  </dialog>
+        gefasst, was im Dunkeln lauert."
+    primaryBtnLabel="Schließen" />
 
-  <dialog id="deeperDialog" class="modal">
-    <div class="modal-box">
-      <div class="alert alert-info alert-soft text-lg max-w-4xl flex flex-col">
-        <figure>
-          <img src="monster.png" alt="monster" class="rounded-2xl" />
-        </figure>
-        Je tiefer du in den Wald gehst, desto dichter wird der Nebel. Die Bäume
+  <app-action-card-dialog
+    #deeperDialog
+    figure="monster.png"
+    dialogText="Je tiefer du in den Wald gehst, desto dichter wird der Nebel. Die Bäume
         flüstern und der Boden ist übersät mit alten Wurzeln. Plötzlich hörst du
         ein leises Knistern – als ob sich etwas Unbekanntes in der Dunkelheit
-        regt. Da kommt plötzlich ein Monster aus dem Dickicht. Du musst Kämpfen.
-      </div>
-      <form method="dialog">
-        <div class="flex justify-between mt-4">
-          <button class="btn btn-secondary pl-8 pr-8">Fliehen 🏃</button>
-          <button class="btn btn-primary pl-8 pr-8">Kämpfen ⚔️</button>
-        </div>
-      </form>
-    </div>
-  </dialog>
+        regt. Da kommt plötzlich ein Monster aus dem Dickicht. Du musst Kämpfen."
+    primaryBtnLabel="🏃 Fliehen"
+    secondaryBtnLabel="⚔️ Kämpfen" />
 
   <div class="flex flex-wrap gap-4">
-    <div class="card soft-gradient text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">🪧 Das mit Moosbewachsene Schild lesen</h2>
-        <p>Wer weiß wer das geschrieben hat?</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary" onclick="boardDialog.showModal()">
-            Lesen 📖
-          </button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="🪧 Das mit Moosbewachsene Schild lesen"
+      cardDescription="Wer weiß wer das geschrieben hat?"
+      [onActionBtnClick]="openShieldDialog"
+      actionBtnLabel="📖 Lesen"
+      [energyCosts]="1" />
 
-    <div class="card soft-gradient text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">🌳 Tiefer in den Wald hinein gehen</h2>
-        <p>
-          Ein ein matschiger Pfad führt tiefer hinein. Welche Geheimnisse dort
-          wohl auf dich warten werden?
-        </p>
-        <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-          <p>🔥 Energie: -2</p>
-          <p>🕰️ Dauer: 2 Minuten</p>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary" onclick="deeperDialog.showModal()">
-            Reisen 🏃
-          </button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="🌳 Tiefer in den Wald hinein gehen"
+      cardDescription="Ein ein matschiger Pfad führt tiefer hinein. Welche Geheimnisse dort wohl auf dich warten werden?"
+      [onActionBtnClick]="openDeeperDialog"
+      actionBtnLabel="🏃 Weiter gehen"
+      [energyCosts]="4"
+      [duration]="180" />
 
-    <div class="card soft-gradient text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">🍄‍🟫 Die Pilze am Wegesrand sammeln</h2>
-        <p>
-          Allerhand Pilze wachsen hier, du kennst einige davon, jedoch beim
-          weitem nicht alle.
-        </p>
-        <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-          <p>🔥 Energie: -2</p>
-          <p>🕰️ Dauer: 2 Minuten</p>
-          <p class="mt-2">⭐️ Erfahrung: +50 (Kräutersammeln)</p>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Aktion 🖐️</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="🍄‍🟫 Die Pilze am Wegesrand sammeln"
+      cardDescription="Allerhand Pilze wachsen hier, du kennst einige davon, jedoch beim weitem nicht alle."
+      [onActionBtnClick]=""
+      actionBtnLabel="🖐️ Aktion"
+      [energyCosts]="4"
+      [duration]="180"
+      [experience]="50"
+      [jobType]="JobType.HerbCollector" />
 
-    <div class="card soft-gradient text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">🌳 Brennholz sammeln</h2>
-        <p>Hier gibt es viel trockenes Holz, das kann man sehr gut anzünden.</p>
-        <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-          <p>🔥 Energie: -3</p>
-          <p>🕰️ Dauer: 4 Minuten</p>
-          <p class="mt-2">⭐️ Erfahrung: +50 (Holzhacken)</p>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Aktion 🖐️</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="🌳 Brennholz sammeln"
+      cardDescription="Hier gibt es viel trockenes Holz, das kann man sehr gut anzünden."
+      [onActionBtnClick]=""
+      actionBtnLabel="🖐️ Aktion"
+      [energyCosts]="4"
+      [duration]="180"
+      [experience]="50"
+      [jobType]="JobType.Lumberjack" />
   </div>
 </div>
