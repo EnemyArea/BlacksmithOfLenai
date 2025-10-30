@@ -1,3 +1,22 @@
+<app-action-card-dialog
+  #shieldDialog
+  figure="schild.jpg"
+  dialogText="
+        Der Wald lebt – seine Geheimnisse verstecken sich hinter jedem
+        moosbewachsenen Stein. Wage dich vor, Sammler, doch sei auf alles
+        gefasst, was im Dunkeln lauert."
+  primaryBtnLabel="Schließen" />
+
+<app-action-card-dialog
+  #deeperDialog
+  figure="monster.png"
+  dialogText="Je tiefer du in den Wald gehst, desto dichter wird der Nebel. Die Bäume
+        flüstern und der Boden ist übersät mit alten Wurzeln. Plötzlich hörst du
+        ein leises Knistern – als ob sich etwas Unbekanntes in der Dunkelheit
+        regt. Da kommt plötzlich ein Monster aus dem Dickicht. Du musst Kämpfen."
+  primaryBtnLabel="🏃 Fliehen"
+  secondaryBtnLabel="⚔️ Kämpfen" />
+
 <div class="flex flex-col gap-4 pb-4">
   <app-collapsible-teaser
     teaserTitle="Umfeld erkunden - Finsterer Wald"
@@ -9,25 +28,6 @@
     teaserFigure="fantasy-forest.png" />
 
   <h2 class="mb-4 w-full border-b pb-2 pl-2">In der Nähe entdeckst du....</h2>
-
-  <app-action-card-dialog
-    #shieldDialog
-    figure="schild.jpg"
-    dialogText="
-        Der Wald lebt – seine Geheimnisse verstecken sich hinter jedem
-        moosbewachsenen Stein. Wage dich vor, Sammler, doch sei auf alles
-        gefasst, was im Dunkeln lauert."
-    primaryBtnLabel="Schließen" />
-
-  <app-action-card-dialog
-    #deeperDialog
-    figure="monster.png"
-    dialogText="Je tiefer du in den Wald gehst, desto dichter wird der Nebel. Die Bäume
-        flüstern und der Boden ist übersät mit alten Wurzeln. Plötzlich hörst du
-        ein leises Knistern – als ob sich etwas Unbekanntes in der Dunkelheit
-        regt. Da kommt plötzlich ein Monster aus dem Dickicht. Du musst Kämpfen."
-    primaryBtnLabel="🏃 Fliehen"
-    secondaryBtnLabel="⚔️ Kämpfen" />
 
   <div class="flex flex-wrap gap-4">
     <app-action-card
