@@ -1,19 +1,15 @@
 <div class="collapse collapse-arrow">
   <input type="checkbox" checked />
   <div class="collapse-title text-2xl font-bold w-full border-b mb-4 p-2">
-    Umfeld erkunden - Finsterer Wald
+    {{ teaserTitle }}
   </div>
   <div class="collapse-content">
     <div
       class="alert alert-info alert-soft text-lg max-w-4xl flex flex-wrap lg:flex-nowrap flex-row">
       <div class="bg-base-100 mask-radial-from-success">
-        <img src="fantasy-forest.png" alt="forest" />
+        <img src="{{ teaserFigure }}" alt="teaser" />
       </div>
-      Nebel legt sich über den düsteren Wald, während fern das Heulen eines
-      Wolfes erklingt. Zwischen moosbewachsenen Wurzeln und alten Steinen suchst
-      du nach seltenen Kräutern – wissend, dass in der Dunkelheit mehr lauert
-      als nur Pflanzen. Jeder Schritt könnte dein letzter sein… oder dich zu
-      einem Geheimnis führen, das seit Jahrhunderten verborgen liegt.
+      {{ teaserText }}
     </div>
   </div>
 </div>

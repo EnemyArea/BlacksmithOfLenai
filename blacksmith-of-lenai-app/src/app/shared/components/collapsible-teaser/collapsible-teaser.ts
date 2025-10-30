@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-collapsible-teaser',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './collapsible-teaser.html',
   styleUrl: './collapsible-teaser.css',
 })
-export class CollapsibleTeaser {}
+export class CollapsibleTeaser {
+  @Input() teaserTitle = '';
+  @Input() teaserText = '';
+  @Input() teaserFigure = '';
+}
