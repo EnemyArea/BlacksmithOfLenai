@@ -1,3 +1,67 @@
 <main>
-  <router-outlet />
+  <div class="flex flex-col h-full">
+    <nav
+      class="bg-base-300 text-white p-5 w-full flex justify-between flex-wrap gap-2">
+      <div>
+        <label for="my-drawer" class="btn btn-neutral lg:hidden mr-4">☰</label>
+        <span class="font-bold text-xl">Startseite</span>
+      </div>
+      <div>
+        <span class="font-bold text-xl">🍴 100 💧 100 🔥 120</span>
+      </div>
+    </nav>
+
+    <div class="drawer lg:drawer-open h-full">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle lg:hidden" />
+
+      <div class="drawer-side h-full w-full lg:w-64 bg-base-200">
+        <label for="my-drawer" class="drawer-overlay lg:hidden"></label>
+
+        <ul class="menu p-4 h-full w-full">
+          <li><a href="/">Umfeld erkunden</a></li>
+          <li><a href="/waypoints">Wegpunkte</a></li>
+          <li><a>Aufträge</a></li>
+          <li><a>Inventar</a></li>
+          <li><a>Ausrüstung</a></li>
+          <li><a>Einstellungen</a></li>
+        </ul>
+      </div>
+      <div class="drawer-content p-4">
+        <router-outlet />
+        <div class="p-4 lg:p-0">&nbsp;</div>
+      </div>
+    </div>
+    <footer
+      class="footer footer-horizontal fixed bottom-0 footer-center bg-base-300 text-base-content p-4">
+      <aside class="flex">
+        <p>
+          Aktuelle Aktion:
+          <b>"Die Pilze am Wegesrand sammeln"</b>
+          <span class="countdown pl-1">
+            <span
+              style="--value: 0; --digits: 2"
+              aria-live="polite"
+              aria-label="0"
+              >00</span
+            >
+            :
+            <span
+              style="--value: 24; --digits: 2"
+              aria-live="polite"
+              aria-label="24"
+              >24</span
+            >
+            :
+            <span
+              style="--value: 59; --digits: 2"
+              aria-live="polite"
+              aria-label="59"
+              >59</span
+            >
+          </span>
+        </p>
+        <button class="btn">Abbrechen</button>
+      </aside>
+    </footer>
+  </div>
 </main>
