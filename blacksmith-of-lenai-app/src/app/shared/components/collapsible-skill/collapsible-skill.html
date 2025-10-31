@@ -1,0 +1,25 @@
+<div class="collapse soft-gradient border border-base-300">
+  <input type="radio" name="my-accordion-1" />
+  <div
+    class="collapse-title font-semibold flex items-center justify-between pe-4">
+    <p>{{ skillName }}</p>
+    <app-skill-rating
+      [currentLevel]="skillLevel"
+      [currentExp]="10000"
+      [nextLevelExp]="12000" />
+  </div>
+  <div class="collapse-content text-sm">
+    <p>
+      ⭐️ Erfahrung: {{ currentSkillExp }} von 12000, noch
+      {{ 12000 - currentSkillExp }} bis zur nächsten Stufe.
+    </p>
+    <div class="pt-4 flex flex-wrap">
+      @for (skillPerk of skillPerkList; track skillPerk.skillPerkId) {
+        <app-skill-perk
+          perkIcon="{{ skillPerk.skillPerkIcon }}"
+          perkName="{{ skillPerk.skillPerkName }}"
+          perkDescription="{{ skillPerk.skillPerkDescription }}" />
+      }
+    </div>
+  </div>
+</div>

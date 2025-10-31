@@ -9,7 +9,7 @@
         <p>🔥 Energie: -{{ energyCosts }}</p>
       }
       @if (duration) {
-        <p>🕰️ Dauer: {{ duration ?? 0 | duration: 'long' }}</p>
+        <p>🕰️ Dauer: {{ duration | duration: 'long' }}</p>
       }
       @if (experience && jobType) {
         <p class="mt-2">

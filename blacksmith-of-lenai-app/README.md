@@ -52,6 +52,16 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
+## Adding new feature
+
+```bash
+ng g c features/waypoints
+```
+
+```bash
+ng g c shared/components/action-card-dialog
+```
+
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources

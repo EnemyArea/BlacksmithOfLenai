@@ -3,10 +3,11 @@ import { CollapsibleTeaser } from '../../shared/components/collapsible-teaser/co
 import { ActionCard } from '../../shared/components/action-card/action-card';
 import { ActionCardDialog } from '../../shared/components/action-card-dialog/action-card-dialog';
 import { JobType } from '../../shared/enums/job-type';
+import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-sub-headline';
 
 @Component({
   selector: 'app-home',
-  imports: [CollapsibleTeaser, ActionCard, ActionCardDialog],
+  imports: [CollapsibleTeaser, ActionCard, ActionCardDialog, PageSubHeadline],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
