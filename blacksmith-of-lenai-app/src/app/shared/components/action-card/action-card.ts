@@ -30,9 +30,9 @@ export class ActionCard {
   getJobTypeName = (): string => {
     switch (this.jobType) {
       case JobType.HerbCollector:
-        return 'Kräutersammler';
+        return 'Kräuterkunde';
       case JobType.Lumberjack:
-        return 'Holzfäller';
+        return 'Waldarbeit';
     }
     return '';
   };

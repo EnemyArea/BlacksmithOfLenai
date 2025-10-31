@@ -1,0 +1,54 @@
+<div class="flex flex-col gap-4 pb-4">
+  <app-page-headline headline="Garten" />
+  <div class="flex flex-wrap gap-2">
+    <button class="btn">🧺 Alles einsammeln</button>
+    <button class="btn">🌱 Alles neubepflanzen</button>
+    <button class="btn">💧 Alles gießen</button>
+    <button class="btn">⌛ Alles düngen</button>
+  </div>
+  <div
+    class="flex flex-wrap justify-center lg:justify-start lg:max-w-3xl gap-4">
+    @for (level of fields; track level) {
+      @if (level < 3) {
+        <div class="card soft-gradient text-neutral-content w-40">
+          <div class="card-body items-center text-center">
+            <h2 class="card-title">Unkraut</h2>
+            @if (level < 2) {
+              <div class="alert alert-soft alert-success">💧 ⌛</div>
+            } @else if (level === 2) {
+              <div class="alert alert-soft alert-error">💧 ⌛</div>
+            }
+            <p>🕰️ {{ 180 | duration: 'long' }}</p>
+            <p>⭐️ +50</p>
+            <div class="flex flex-row flex-wrap gap-1 items-stretch">
+              <button class="btn">🧺</button>
+              <button class="btn">🌱</button>
+              <button class="btn">💧</button>
+              <button class="btn">⌛</button>
+            </div>
+          </div>
+        </div>
+      } @else if (level < fields.length - 1) {
+        <div class="card soft-gradient text-neutral-content w-40">
+          <div class="card-body items-center text-center">
+            <h2 class="card-title">Nichts gepflanzt</h2>
+            <p>Min. Stufe 3 Landwirt</p>
+            <div class="flex flex-row flex-wrap gap-1 items-stretch">
+              <button class="btn">🌱</button>
+            </div>
+          </div>
+        </div>
+      } @else {
+        <div class="card soft-gradient text-neutral-content w-40">
+          <div class="card-body items-center text-center">
+            <h2 class="card-title">Kaufen</h2>
+            <p>🪙 2.000</p>
+            <div class="flex flex-row flex-wrap gap-1 items-stretch">
+              <button class="btn">💰</button>
+            </div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>
