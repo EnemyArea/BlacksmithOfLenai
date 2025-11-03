@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
-import { CollapsibleSkill } from '../../shared/components/collapsible-skill/collapsible-skill';
+import { CollapsibleSkill } from './components/collapsible-skill/collapsible-skill';
 import { SkillPerkData } from '../../shared/models/skill-perk-data';
 
 @Component({

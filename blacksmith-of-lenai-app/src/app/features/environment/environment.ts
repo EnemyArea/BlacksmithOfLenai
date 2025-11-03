@@ -7,7 +7,7 @@ import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-
 
 @Component({
   selector: 'app-environment',
-  imports: [CollapsibleTeaser, ActionCard, ActionCardDialog, PageSubHeadline],
+  imports: [PageSubHeadline, CollapsibleTeaser, ActionCard, ActionCardDialog],
   templateUrl: './environment.html',
   styleUrl: './environment.css',
 })

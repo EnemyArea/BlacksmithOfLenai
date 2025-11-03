@@ -8,6 +8,4 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
-  fields: number[] = [...Array(8).keys()];
-}
+export class Home {}
