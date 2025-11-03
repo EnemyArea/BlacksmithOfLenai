@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SkillPerk } from '../skill-perk/skill-perk';
-import { SkillRating } from '../skill-rating/skill-rating';
+import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
 import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
 
 @Component({

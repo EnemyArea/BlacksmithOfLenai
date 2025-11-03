@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { DurationPipe } from '../../pipes/duration.pipe';
 import { JobType } from '../../enums/job-type';
+import { ActionCosts } from '../action-costs/action-costs';
 
 @Component({
   selector: 'app-action-card',
-  imports: [DurationPipe],
+  imports: [ActionCosts],
   templateUrl: './action-card.html',
   styleUrl: './action-card.css',
   host: {
@@ -26,14 +26,4 @@ export class ActionCard {
       this.onActionBtnClick();
     }
   }
-
-  getJobTypeName = (): string => {
-    switch (this.jobType) {
-      case JobType.HerbCollector:
-        return 'Kräuterkunde';
-      case JobType.Lumberjack:
-        return 'Waldarbeit';
-    }
-    return '';
-  };
 }

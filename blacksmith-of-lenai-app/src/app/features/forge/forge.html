@@ -10,82 +10,90 @@
 
   <hr />
 
-  @for (level of fields; track level) {
-    <div class="flex gap-2 flex-wrap">
-      <div class="flex flex-col w-full gap-2">
-        <div class="flex gap-2">
-          <div class="card soft-gradient text-neutral-content w-36">
-            <div class="card-body items-center justify-center p-2">
-              <img
-                src="blacksmith/25.png"
-                alt="recipeicon"
-                class="rounded-2xl" />
-            </div>
-          </div>
-          <div class="card soft-gradient text-neutral-content w-full">
-            <div class="card-body justify-center p-2 pl-6">
-              <div>
-                <h2 class="card-title">Kupfer Barren</h2>
-                <p>⭐️ +50 (Schmied)</p>
-                <p>🕰️ Dauer: {{ 180 | duration: 'long' }}</p>
-                <p>🔥 Energie: -{{ 5 }}</p>
+  <div class="flex flex-wrap gap-4">
+    @for (level of fields; track level) {
+      <div class="w-96">
+        <div class="flex gap-2 flex-wrap">
+          <div class="flex flex-col w-full gap-2">
+            <div class="flex gap-2">
+              <div class="card soft-gradient text-neutral-content w-36">
+                <div class="card-body items-center justify-center p-2">
+                  <img
+                    src="blacksmith/25.png"
+                    alt="recipeicon"
+                    class="rounded-2xl" />
+                </div>
+              </div>
+              <div class="card soft-gradient text-neutral-content w-full">
+                <div class="card-body justify-center p-2 pl-6">
+                  <div>
+                    <h2 class="card-title">Kupfer Barren</h2>
+                    <app-skill-rating />
+                    <app-action-costs
+                      [duration]="180"
+                      [energyCosts]="2"
+                      [experience]="50"
+                      [jobExperience]="10"
+                      [jobType]="JobType.BlackSmith" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow soft-gradient">
-        <input type="checkbox" />
-        <h2 class="collapse-title text-neutral-content underline">
-          Materialien anzeigen
-        </h2>
-        <div class="collapse-content p-0">
-          <div class="card-body flex-col flex-wrap lg:gap-4 p-4 pt-0">
-            <div>
-              <h2 class="text-neutral-content">Benötigte Materialien</h2>
-              <div class="flex flex-wrap">
-                <div
-                  class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-                  2x Kupfererz
+          <div class="collapse collapse-arrow soft-gradient">
+            <input type="checkbox" />
+            <h2 class="collapse-title text-neutral-content underline">
+              Materialien anzeigen
+            </h2>
+            <div class="collapse-content p-0">
+              <div class="card-body flex-col flex-wrap lg:gap-4 p-4 pt-0">
+                <div>
+                  <h2 class="text-neutral-content">Benötigte Materialien</h2>
+                  <div class="flex flex-wrap">
+                    <div
+                      class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+                      2x Kupfererz
+                    </div>
+                    <div
+                      class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+                      2x Holzkohle
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-                  2x Holzkohle
+                <div>
+                  <h2 class="text-neutral-content">Vorhandene Materialien</h2>
+                  <div class="flex flex-wrap">
+                    <div
+                      class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+                      20x Kupfererz
+                    </div>
+                    <div
+                      class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+                      20x Holzkohle
+                    </div>
+                    <div
+                      class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+                      20x Feenstaub
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div>
-              <h2 class="text-neutral-content">Vorhandene Materialien</h2>
-              <div class="flex flex-wrap">
-                <div
-                  class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-                  20x Kupfererz
+                <div>
+                  <h2 class="text-neutral-content">Extra Materialien</h2>
+                  <div class="flex flex-wrap p-2">
+                    <label
+                      class="bg-base-100 p-2 pr-4 rounded-box flex gap-2 items-center">
+                      <input type="checkbox" class="checkbox" /> + 1x Feenstaub
+                    </label>
+                  </div>
                 </div>
-                <div
-                  class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-                  20x Holzkohle
-                </div>
-                <div
-                  class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-                  20x Feenstaub
-                </div>
-              </div>
-            </div>
-            <div>
-              <h2 class="text-neutral-content">Extra Materialien</h2>
-              <div class="flex flex-wrap p-2">
-                <label
-                  class="bg-base-100 p-2 pr-4 rounded-box flex gap-2 items-center">
-                  <input type="checkbox" class="checkbox" /> + 1x Feenstaub
-                </label>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <button class="btn">🔨 1x Herstellen</button>
-      <button class="btn">🔨 Alle Herstellen</button>
-    </div>
-  }
+          <button class="btn btn-primary">🔨 1x Herstellen</button>
+          <button class="btn btn-primary">🔨 Alle Herstellen (10)</button>
+        </div>
+      </div>
+    }
+  </div>
 </div>

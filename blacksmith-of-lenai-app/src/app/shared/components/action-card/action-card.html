@@ -3,21 +3,11 @@
   <p>
     {{ cardDescription }}
   </p>
-  @if (energyCosts || duration || experience) {
-    <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-      @if (energyCosts) {
-        <p>🔥 Energie: -{{ energyCosts }}</p>
-      }
-      @if (duration) {
-        <p>🕰️ Dauer: {{ duration | duration: 'long' }}</p>
-      }
-      @if (experience && jobType) {
-        <p class="mt-2">
-          ⭐️ Erfahrung: +{{ experience }} ({{ getJobTypeName() }})
-        </p>
-      }
-    </div>
-  }
+  <app-action-costs
+    [duration]="duration"
+    [energyCosts]="energyCosts"
+    [experience]="experience"
+    [jobType]="jobType" />
   <div class="card-actions justify-end">
     <button class="btn btn-primary" (click)="handleActionBtnClick()">
       {{ actionBtnLabel }}

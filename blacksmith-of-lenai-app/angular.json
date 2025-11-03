@@ -91,6 +91,14 @@
           "options": {
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/BlacksmithOfLenai/",
+            "dir": "dist/blacksmith-of-lenai-app/browser",
+            "buildTarget": "blacksmith-of-lenai-app:build:production"
+          }
         }
       }
     }

@@ -1,0 +1,16 @@
+@if (energyCosts || duration || experience) {
+  <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
+    @if (energyCosts) {
+      <p>🔥 Energie: -{{ energyCosts }}</p>
+    }
+    @if (duration) {
+      <p>🕰️ Dauer: {{ duration | duration: 'long' }}</p>
+    }
+    @if (experience) {
+      <p>⭐️ Erfahrung: +{{ experience }}</p>
+    }
+    @if (jobExperience && jobType) {
+      <p>⭐️ {{ getJobTypeName() }}: +{{ jobExperience }}</p>
+    }
+  </div>
+}

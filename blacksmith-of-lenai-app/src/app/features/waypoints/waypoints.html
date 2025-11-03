@@ -2,57 +2,39 @@
   <app-page-headline headline="Wegpunkte" />
 
   <div class="flex pb-4">
-    <div class="card bg-neutral text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Nach Hause</h2>
-        <p>
-          Zu Hause ist es am besten. Hier kannst du alles erledigen was du
-          machen willst.
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Reisen - 05:00</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="Nach Hause"
+      cardDescription="Zu Hause ist es am besten. Hier kannst du alles erledigen was du machen willst."
+      actionBtnLabel="Reisen"
+      [onActionBtnClick]=""
+      [duration]="180" />
   </div>
 
   <h2 class="mb-4 w-full border-b pb-2 pl-2">In der Nähe</h2>
 
   <div class="flex flex-wrap gap-4">
-    <div class="card bg-neutral text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Zum finsteren Wald</h2>
-        <p>
-          Ein dunkler, unwirklicher Ort. Perfekt um ein paar seltene Zutaten zu
-          sammeln.
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Reisen - 10:00</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="Zum Finsteren Wald"
+      cardDescription="Ein dunkler, unwirklicher Ort. Perfekt um ein paar seltene Zutaten zu sammeln."
+      actionBtnLabel="Reisen"
+      [onActionBtnClick]=""
+      [duration]="180"
+      [energyCosts]="2" />
 
-    <div class="card bg-neutral text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Zum Kristallsee</h2>
-        <p>
-          Denke immer daran, schaue nicht zu lange in den See, sonst schaut der
-          See in dich hinein.
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Reisen - 10:00</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="Zum Kristallsee"
+      cardDescription="Denke immer daran, schaue nicht zu lange in den See, sonst schaut der See in dich hinein."
+      actionBtnLabel="Reisen"
+      [onActionBtnClick]=""
+      [duration]="180"
+      [energyCosts]="2" />
 
-    <div class="card bg-neutral text-neutral-content w-96">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Zum Alten Gasthaus</h2>
-        <p>Bier, Brot, Bett, das bekommst du hier.</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Reisen - 20:00</button>
-        </div>
-      </div>
-    </div>
+    <app-action-card
+      cardTitle="Zum Alten Gasthaus"
+      cardDescription="Bier, Brot, Bett, das bekommst du hier."
+      actionBtnLabel="Reisen"
+      [onActionBtnClick]=""
+      [duration]="180"
+      [energyCosts]="2" />
   </div>
 </div>

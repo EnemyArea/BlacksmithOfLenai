@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Users } from './users';
+import { CropStatus } from './crop-status-bar';
 
-describe('Users', () => {
-  let component: Users;
-  let fixture: ComponentFixture<Users>;
+describe('CropStatus', () => {
+  let component: CropStatus;
+  let fixture: ComponentFixture<CropStatus>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Users],
+      imports: [CropStatus],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Users);
+    fixture = TestBed.createComponent(CropStatus);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
