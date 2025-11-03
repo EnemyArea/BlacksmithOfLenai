@@ -6,7 +6,7 @@
     <button class="btn">💧 Alles gießen</button>
     <button class="btn">⌛ Alles düngen</button>
   </div>
-  <div class="flex gap-2 flex-wrap">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
     @for (level of fields; track level) {
       <app-crop-card
         [haveCropPlanted]="level === 4"

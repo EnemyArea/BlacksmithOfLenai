@@ -18,7 +18,7 @@ export class Skills {
       skillPerkIcon: 'lavenders-6482579_640.jpg',
     },
     {
-      skillPerkId: 'f3010fee-cc7f-4e6a-bdf5-81caf1de8d87',
+      skillPerkId: '575b9657-32f1-4515-ba6f-3f3f5cbf4098',
       skillPerkName: 'Kräuterexperte',
       skillPerkDescription:
         'Du kannst nun Kräuter bis Stufe 4 finden und hast die Chance ein weiteres zu sammeln.',

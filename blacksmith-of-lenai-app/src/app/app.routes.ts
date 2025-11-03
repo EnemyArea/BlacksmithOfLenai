@@ -6,6 +6,7 @@ import { Home } from './features/home/home';
 import { Garden } from './features/garden/garden';
 import { Forge } from './features/forge/forge';
 import { Mine } from './features/mine/mine';
+import { Equipment } from './features/equipment/equipment';
 
 export const routes: Routes = [
   {
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'skills',
     component: Skills,
+  },
+  {
+    path: 'equipment',
+    component: Equipment,
   },
 ];

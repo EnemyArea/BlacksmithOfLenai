@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { JobType } from '../../enums/job-type';
 import { ActionCosts } from '../action-costs/action-costs';
+import { PageCard } from '../page-card/page-card';
 
 @Component({
   selector: 'app-action-card',
-  imports: [ActionCosts],
+  imports: [ActionCosts, PageCard],
   templateUrl: './action-card.html',
   styleUrl: './action-card.css',
   host: {
