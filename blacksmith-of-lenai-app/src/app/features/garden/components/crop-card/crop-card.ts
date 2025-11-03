@@ -14,8 +14,7 @@ import { JobType } from '../../../../shared/enums/job-type';
   },
 })
 export class CropCard {
-  protected readonly JobType = JobType;
-
   @Input() isPurchased = false;
   @Input() haveCropPlanted = false;
+  protected readonly JobType = JobType;
 }

@@ -8,9 +8,8 @@ describe('SkillPerk', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SkillPerk]
-    })
-    .compileComponents();
+      imports: [SkillPerk],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SkillPerk);
     component = fixture.componentInstance;

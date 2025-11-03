@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './action-footer.html',
   styleUrl: './action-footer.css',
 })
-export class ActionFooter {
-
-}
+export class ActionFooter {}

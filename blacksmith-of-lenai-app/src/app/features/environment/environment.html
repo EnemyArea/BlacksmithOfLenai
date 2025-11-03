@@ -1,68 +1,68 @@
 <app-action-card-dialog
   #shieldDialog
-  figure="schild.jpg"
   dialogText="
         Der Wald lebt – seine Geheimnisse verstecken sich hinter jedem
         moosbewachsenen Stein. Wage dich vor, Sammler, doch sei auf alles
         gefasst, was im Dunkeln lauert."
+  figure="schild.jpg"
   primaryBtnLabel="Schließen" />
 
 <app-action-card-dialog
   #deeperDialog
-  figure="monster.png"
   dialogText="Je tiefer du in den Wald gehst, desto dichter wird der Nebel. Die Bäume
         flüstern und der Boden ist übersät mit alten Wurzeln. Plötzlich hörst du
         ein leises Knistern – als ob sich etwas Unbekanntes in der Dunkelheit
         regt. Da kommt plötzlich ein Monster aus dem Dickicht. Du musst Kämpfen."
+  figure="monster.png"
   primaryBtnLabel="🏃 Fliehen"
   secondaryBtnLabel="⚔️ Kämpfen" />
 
 <div class="flex flex-col gap-4 pb-4">
   <app-collapsible-teaser
-    teaserTitle="Finsterer Wald"
+    teaserFigure="fantasy-forest.png"
     teaserText="Nebel legt sich über den düsteren Wald, während fern das Heulen eines
       Wolfes erklingt. Zwischen moosbewachsenen Wurzeln und alten Steinen suchst
       du nach seltenen Kräutern – wissend, dass in der Dunkelheit mehr lauert
       als nur Pflanzen. Jeder Schritt könnte dein letzter sein… oder dich zu
       einem Geheimnis führen, das seit Jahrhunderten verborgen liegt."
-    teaserFigure="fantasy-forest.png" />
+    teaserTitle="Finsterer Wald" />
 
   <app-page-sub-headline headline="In der Nähe entdeckst du...." />
 
   <div class="flex flex-wrap gap-4">
     <app-action-card
-      cardTitle="🪧 Das mit Moosbewachsene Schild lesen"
-      cardDescription="Wer weiß wer das geschrieben hat?"
-      actionBtnLabel="📖 Lesen"
+      [energyCosts]="1"
       [onActionBtnClick]="openShieldDialog"
-      [energyCosts]="1" />
+      actionBtnLabel="📖 Lesen"
+      cardDescription="Wer weiß wer das geschrieben hat?"
+      cardTitle="🪧 Das mit Moosbewachsene Schild lesen" />
 
     <app-action-card
-      cardTitle="🌳 Tiefer in den Wald hinein gehen"
-      cardDescription="Ein ein matschiger Pfad führt tiefer hinein. Welche Geheimnisse dort wohl auf dich warten werden?"
-      actionBtnLabel="🏃 Weiter gehen"
+      [duration]="180"
+      [energyCosts]="4"
       [onActionBtnClick]="openDeeperDialog"
-      [energyCosts]="4"
-      [duration]="180" />
+      actionBtnLabel="🏃 Weiter gehen"
+      cardDescription="Ein ein matschiger Pfad führt tiefer hinein. Welche Geheimnisse dort wohl auf dich warten werden?"
+      cardTitle="🌳 Tiefer in den Wald hinein gehen" />
 
     <app-action-card
-      cardTitle="🍄‍🟫 Die Pilze am Wegesrand sammeln"
+      [duration]="180"
+      [energyCosts]="4"
+      [experience]="50"
+      [jobType]="JobType.HerbCollector"
+      [onActionBtnClick]=""
+      actionBtnLabel="🖐️ Aktion"
       cardDescription="Allerhand Pilze wachsen hier, du kennst einige davon, jedoch beim weitem nicht alle."
-      actionBtnLabel="🖐️ Aktion"
-      [onActionBtnClick]=""
-      [energyCosts]="4"
-      [duration]="180"
-      [experience]="50"
-      [jobType]="JobType.HerbCollector" />
+      cardTitle="🍄‍🟫 Die Pilze am Wegesrand sammeln" />
 
     <app-action-card
-      cardTitle="🌳 Brennholz sammeln"
-      cardDescription="Hier gibt es viel trockenes Holz, das kann man sehr gut anzünden."
-      actionBtnLabel="🖐️ Aktion"
-      [onActionBtnClick]=""
-      [energyCosts]="4"
       [duration]="180"
+      [energyCosts]="4"
       [experience]="50"
-      [jobType]="JobType.Lumberjack" />
+      [jobType]="JobType.Lumberjack"
+      [onActionBtnClick]=""
+      actionBtnLabel="🖐️ Aktion"
+      cardDescription="Hier gibt es viel trockenes Holz, das kann man sehr gut anzünden."
+      cardTitle="🌳 Brennholz sammeln" />
   </div>
 </div>

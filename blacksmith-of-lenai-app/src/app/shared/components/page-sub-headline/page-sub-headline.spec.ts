@@ -8,9 +8,8 @@ describe('PageSubHeadline', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageSubHeadline]
-    })
-    .compileComponents();
+      imports: [PageSubHeadline],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PageSubHeadline);
     component = fixture.componentInstance;

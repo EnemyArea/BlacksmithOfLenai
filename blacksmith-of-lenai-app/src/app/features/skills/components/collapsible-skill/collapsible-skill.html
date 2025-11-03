@@ -1,11 +1,11 @@
 <div class="collapse soft-gradient border border-base-300">
-  <input type="radio" name="my-accordion-1" />
+  <input name="my-accordion-1" type="radio" />
   <div
     class="collapse-title font-semibold flex items-center justify-between pe-4">
     <p>{{ skillName }}</p>
     <app-skill-rating
-      [currentLevel]="skillLevel"
       [currentExp]="10000"
+      [currentLevel]="skillLevel"
       [nextLevelExp]="12000" />
   </div>
   <div class="collapse-content text-sm">
@@ -16,9 +16,9 @@
     <div class="pt-4 flex flex-wrap">
       @for (skillPerk of skillPerkList; track skillPerk.skillPerkId) {
         <app-skill-perk
+          perkDescription="{{ skillPerk.skillPerkDescription }}"
           perkIcon="{{ skillPerk.skillPerkIcon }}"
-          perkName="{{ skillPerk.skillPerkName }}"
-          perkDescription="{{ skillPerk.skillPerkDescription }}" />
+          perkName="{{ skillPerk.skillPerkName }}" />
       }
     </div>
   </div>

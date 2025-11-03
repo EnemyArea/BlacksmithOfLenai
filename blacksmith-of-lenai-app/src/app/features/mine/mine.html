@@ -17,8 +17,8 @@
   <div class="flex gap-2 flex-wrap">
     @for (level of fields; track level) {
       <app-mine-vein-card
-        [isRevealed]="level === 4 || level === 6"
-        [isOreVein]="level === 4" />
+        [isOreVein]="level === 4"
+        [isRevealed]="level === 4 || level === 6" />
     }
   </div>
 </div>

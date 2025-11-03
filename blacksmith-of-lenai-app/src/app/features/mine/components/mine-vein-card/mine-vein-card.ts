@@ -13,8 +13,7 @@ import { JobType } from '../../../../shared/enums/job-type';
   },
 })
 export class MineVeinCard {
-  protected readonly JobType = JobType;
-
   @Input() isRevealed = false;
   @Input() isOreVein = false;
+  protected readonly JobType = JobType;
 }

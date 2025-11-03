@@ -8,9 +8,8 @@ describe('Waypoints', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Waypoints]
-    })
-    .compileComponents();
+      imports: [Waypoints],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Waypoints);
     component = fixture.componentInstance;

@@ -12,10 +12,9 @@ import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-
   styleUrl: './environment.css',
 })
 export class Environment {
-  protected readonly JobType = JobType;
-
   @ViewChild('shieldDialog') shieldDialog!: ActionCardDialog;
   @ViewChild('deeperDialog') deeperDialog!: ActionCardDialog;
+  protected readonly JobType = JobType;
 
   openShieldDialog = () => {
     this.shieldDialog.showDialog();

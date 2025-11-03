@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './game-menu.html',
   styleUrl: './game-menu.css',
 })
-export class GameMenu {
-
-}
+export class GameMenu {}

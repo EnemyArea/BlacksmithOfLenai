@@ -3,17 +3,17 @@
     <nav
       class="bg-base-300 text-white p-5 w-full flex justify-between flex-wrap gap-2">
       <div>
-        <label for="my-drawer" class="btn btn-neutral lg:hidden mr-4">☰</label>
+        <label class="btn btn-neutral lg:hidden mr-4" for="my-drawer">☰</label>
         <span class="font-bold text-xl"><a href="">Startseite</a></span>
       </div>
       <app-game-player-top />
     </nav>
 
     <div class="drawer lg:drawer-open h-full">
-      <input id="my-drawer" type="checkbox" class="drawer-toggle lg:hidden" />
+      <input class="drawer-toggle lg:hidden" id="my-drawer" type="checkbox" />
 
       <div class="drawer-side h-full w-full lg:w-64 bg-base-200">
-        <label for="my-drawer" class="drawer-overlay lg:hidden"></label>
+        <label class="drawer-overlay lg:hidden" for="my-drawer"></label>
         <app-game-menu />
       </div>
       <div class="drawer-content p-4 container">

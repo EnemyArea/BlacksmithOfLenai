@@ -8,9 +8,8 @@ describe('ActionCardDialog', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ActionCardDialog]
-    })
-    .compileComponents();
+      imports: [ActionCardDialog],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ActionCardDialog);
     component = fixture.componentInstance;

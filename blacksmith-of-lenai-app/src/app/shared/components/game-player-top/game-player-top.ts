@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './game-player-top.html',
   styleUrl: './game-player-top.css',
 })
-export class GamePlayerTop {
-
-}
+export class GamePlayerTop {}

@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { ActionCosts } from '../../shared/components/action-costs/action-costs';
 import { JobType } from '../../shared/enums/job-type';
+import { SkillRating } from '../../shared/components/skill-rating/skill-rating';
 
 @Component({
   selector: 'app-forge',
-  imports: [PageHeadline, ActionCosts],
+  imports: [PageHeadline, ActionCosts, SkillRating],
   templateUrl: './forge.html',
   styleUrl: './forge.css',
 })

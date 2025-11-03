@@ -9,8 +9,8 @@
   <div class="flex gap-2 flex-wrap">
     @for (level of fields; track level) {
       <app-crop-card
-        [isPurchased]="level === 4 || level === 6"
-        [haveCropPlanted]="level === 4" />
+        [haveCropPlanted]="level === 4"
+        [isPurchased]="level === 4 || level === 6" />
     }
   </div>
 </div>

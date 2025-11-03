@@ -3,38 +3,38 @@
 
   <div class="flex pb-4">
     <app-action-card
-      cardTitle="Nach Hause"
-      cardDescription="Zu Hause ist es am besten. Hier kannst du alles erledigen was du machen willst."
-      actionBtnLabel="Reisen"
+      [duration]="180"
       [onActionBtnClick]=""
-      [duration]="180" />
+      actionBtnLabel="Reisen"
+      cardDescription="Zu Hause ist es am besten. Hier kannst du alles erledigen was du machen willst."
+      cardTitle="Nach Hause" />
   </div>
 
   <h2 class="mb-4 w-full border-b pb-2 pl-2">In der Nähe</h2>
 
   <div class="flex flex-wrap gap-4">
     <app-action-card
-      cardTitle="Zum Finsteren Wald"
+      [duration]="180"
+      [energyCosts]="2"
+      [onActionBtnClick]=""
+      actionBtnLabel="Reisen"
       cardDescription="Ein dunkler, unwirklicher Ort. Perfekt um ein paar seltene Zutaten zu sammeln."
-      actionBtnLabel="Reisen"
-      [onActionBtnClick]=""
-      [duration]="180"
-      [energyCosts]="2" />
+      cardTitle="Zum Finsteren Wald" />
 
     <app-action-card
-      cardTitle="Zum Kristallsee"
+      [duration]="180"
+      [energyCosts]="2"
+      [onActionBtnClick]=""
+      actionBtnLabel="Reisen"
       cardDescription="Denke immer daran, schaue nicht zu lange in den See, sonst schaut der See in dich hinein."
-      actionBtnLabel="Reisen"
-      [onActionBtnClick]=""
-      [duration]="180"
-      [energyCosts]="2" />
+      cardTitle="Zum Kristallsee" />
 
     <app-action-card
-      cardTitle="Zum Alten Gasthaus"
-      cardDescription="Bier, Brot, Bett, das bekommst du hier."
-      actionBtnLabel="Reisen"
-      [onActionBtnClick]=""
       [duration]="180"
-      [energyCosts]="2" />
+      [energyCosts]="2"
+      [onActionBtnClick]=""
+      actionBtnLabel="Reisen"
+      cardDescription="Bier, Brot, Bett, das bekommst du hier."
+      cardTitle="Zum Alten Gasthaus" />
   </div>
 </div>
