@@ -6,51 +6,11 @@
     <button class="btn">💧 Alles gießen</button>
     <button class="btn">⌛ Alles düngen</button>
   </div>
-  <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+  <div class="flex gap-2 flex-wrap">
     @for (level of fields; track level) {
-      @if (level < 3) {
-        <div class="card soft-gradient text-neutral-content w-72">
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">Unkraut</h2>
-            <app-skill-rating />
-            <app-crop-status-bar />
-
-            <app-action-costs
-              [duration]="180"
-              [energyCosts]="2"
-              [experience]="50"
-              [jobExperience]="10"
-              [jobType]="JobType.HerbCollector" />
-
-            <div class="flex flex-row flex-wrap gap-1 items-stretch">
-              <button class="btn">🧺</button>
-              <button class="btn">🌱</button>
-              <button class="btn">💧</button>
-              <button class="btn">⌛</button>
-            </div>
-          </div>
-        </div>
-      } @else if (level < fields.length - 1) {
-        <div class="card soft-gradient text-neutral-content w-72">
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">Nichts gepflanzt</h2>
-            <p>Min. Stufe 3 Landwirtschaft</p>
-            <div class="flex flex-row flex-wrap gap-1 items-stretch">
-              <button class="btn">🌱</button>
-            </div>
-          </div>
-        </div>
-      } @else {
-        <div class="card soft-gradient text-neutral-content w-72">
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">Kaufen</h2>
-            <p>🪙 2.000</p>
-            <div class="flex flex-row flex-wrap gap-1 items-stretch">
-              <button class="btn">💰</button>
-            </div>
-          </div>
-        </div>
-      }
+      <app-crop-card
+        [isPurchased]="level === 4 || level === 6"
+        [haveCropPlanted]="level === 4" />
     }
   </div>
 </div>

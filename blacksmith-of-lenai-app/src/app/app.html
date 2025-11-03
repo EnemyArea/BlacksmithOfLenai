@@ -6,13 +6,7 @@
         <label for="my-drawer" class="btn btn-neutral lg:hidden mr-4">☰</label>
         <span class="font-bold text-xl"><a href="">Startseite</a></span>
       </div>
-      <div class="flex gap-2 text-center font-bold text-xl">
-        <span>♥️ 10000 </span>
-        <span>🔥 120</span>
-        <span>🍴 100</span>
-        <span>💧 100</span>
-        <span>🪙 2.000.000</span>
-      </div>
+      <app-game-player-top />
     </nav>
 
     <div class="drawer lg:drawer-open h-full">
@@ -20,19 +14,7 @@
 
       <div class="drawer-side h-full w-full lg:w-64 bg-base-200">
         <label for="my-drawer" class="drawer-overlay lg:hidden"></label>
-
-        <ul class="menu p-4 h-full w-full">
-          <li><a href="garden">Garten</a></li>
-          <li><a href="forge">Schmiede</a></li>
-          <li><a href="mine">Bergwerk</a></li>
-          <li><a href="environment">Umfeld erkunden</a></li>
-          <li><a href="waypoints">Wegpunkte</a></li>
-          <li><a href="skills">Fähigkeiten</a></li>
-          <li><a>Aufträge</a></li>
-          <li><a>Lager</a></li>
-          <li><a>Ausrüstung</a></li>
-          <li><a>Einstellungen</a></li>
-        </ul>
+        <app-game-menu />
       </div>
       <div class="drawer-content p-4 container">
         <router-outlet />
@@ -40,36 +22,8 @@
       </div>
     </div>
     <footer
-      class="footer footer-horizontal fixed bottom-0 footer-center bg-base-300 text-base-content p-4">
-      <aside class="flex">
-        <p>
-          Aktuelle Aktion:
-          <b>"Die Pilze am Wegesrand sammeln"</b>
-          <span class="countdown pl-1">
-            <span
-              style="--value: 0; --digits: 2"
-              aria-live="polite"
-              aria-label="0"
-              >00</span
-            >
-            :
-            <span
-              style="--value: 24; --digits: 2"
-              aria-live="polite"
-              aria-label="24"
-              >24</span
-            >
-            :
-            <span
-              style="--value: 59; --digits: 2"
-              aria-live="polite"
-              aria-label="59"
-              >59</span
-            >
-          </span>
-        </p>
-        <button class="btn">Abbrechen</button>
-      </aside>
+      class="footer footer-horizontal fixed z-99 bottom-0 footer-center bg-base-300 p-2">
+      <app-action-footer />
     </footer>
   </div>
 </main>

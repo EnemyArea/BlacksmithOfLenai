@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
-import { SkillRating } from '../../shared/components/skill-rating/skill-rating';
-import { ActionCosts } from '../../shared/components/action-costs/action-costs';
 import { JobType } from '../../shared/enums/job-type';
-import { CropStatusBar } from './components/crop-status-bar/crop-status-bar';
+import { CropCard } from './components/crop-card/crop-card';
 
 @Component({
   selector: 'app-garden',
-  imports: [PageHeadline, SkillRating, ActionCosts, CropStatusBar],
+  imports: [PageHeadline, CropCard],
   templateUrl: './garden.html',
   styleUrl: './garden.css',
 })

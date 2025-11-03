@@ -1,31 +1,6 @@
 <div class="flex flex-col gap-4 pb-4">
   <app-page-headline headline="Bergwerk" />
 
-  <div class="card soft-gradient text-neutral-content lg:max-w-3xl">
-    <div class="card-body items-center text-center">
-      <div class="flex flex-wrap gap-4">
-        <div class="w-full lg:w-60">
-          <h2 class="card-title">Eisenerzader wird abgebaut</h2>
-          <app-action-costs
-            [duration]="180"
-            [energyCosts]="2"
-            [experience]="50"
-            [jobExperience]="10"
-            [jobType]="JobType.HerbCollector" />
-        </div>
-        <div class="w-full lg:w-60">
-          <h2 class="card-title">Bereits abgebaut</h2>
-          <div class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left">
-            <p>Eisenerz: 70x</p>
-            <p>Gestein: 25x</p>
-            <p>Silbererz: 5x</p>
-          </div>
-        </div>
-      </div>
-      <progress class="progress" value="10" max="100"></progress>
-    </div>
-  </div>
-
   <div class="flex items-center gap-4 pl-4">
     Ebene
     <select class="select w-20">
@@ -41,59 +16,9 @@
   <app-page-sub-headline headline="In der Nähe entdeckst du...." />
   <div class="flex gap-2 flex-wrap">
     @for (level of fields; track level) {
-      <div class="card soft-gradient text-neutral-content w-96">
-        <div class="card-body items-center text-center">
-          @if (level < 3) {
-            <h2 class="card-title">Eisenerzader</h2>
-            <app-skill-rating />
-
-            <div class="flex">
-              <div class="items-center justify-top p-2 w-20">
-                <img
-                  src="blacksmith/25.png"
-                  alt="recipeicon"
-                  class="rounded-2xl" />
-              </div>
-              <app-action-costs
-                [duration]="180"
-                [energyCosts]="2"
-                [experience]="50"
-                [jobExperience]="10"
-                [jobType]="JobType.Miner" />
-            </div>
-            <div class="collapse collapse-arrow bg-base-100">
-              <input type="checkbox" />
-              <h2 class="collapse-title text-neutral-content underline">
-                Materialien anzeigen
-              </h2>
-              <div class="collapse-content">
-                <p>Eisenerz 70%</p>
-                <p>Gestein 25%</p>
-                <p>Silbererz 5%</p>
-              </div>
-            </div>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Abbauen</button>
-            </div>
-          } @else if (level === 4) {
-            <h2 class="card-title">Zur nächsten Ebene</h2>
-            <div class="flex">
-              <app-action-costs [duration]="180" [energyCosts]="2" />
-            </div>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Hinabsteigen</button>
-            </div>
-          } @else {
-            <h2 class="card-title">Unbekanntes Gestein</h2>
-            <div class="flex">
-              <app-action-costs [duration]="180" [energyCosts]="2" />
-            </div>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Abbauen</button>
-            </div>
-          }
-        </div>
-      </div>
+      <app-mine-vein-card
+        [isRevealed]="level === 4 || level === 6"
+        [isOreVein]="level === 4" />
     }
   </div>
 </div>

@@ -1,0 +1,52 @@
+<div class="card soft-gradient text-neutral-content">
+  <div class="card-body items-center text-center">
+    @if (!isRevealed) {
+      <h2 class="card-title">Unbekanntes Gestein</h2>
+      <div class="flex">
+        <app-action-costs [duration]="180" [energyCosts]="2" />
+      </div>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Abbauen</button>
+      </div>
+    } @else {
+      @if (isOreVein) {
+        <h2 class="card-title">Eisenerzader</h2>
+        <app-skill-rating />
+
+        <div class="flex">
+          <div class="items-center justify-top p-2 w-20">
+            <img src="blacksmith/25.png" alt="recipeicon" class="rounded-2xl" />
+          </div>
+          <app-action-costs
+            [duration]="180"
+            [energyCosts]="2"
+            [experience]="50"
+            [jobExperience]="10"
+            [jobType]="JobType.Miner" />
+        </div>
+        <div class="collapse collapse-arrow bg-base-100">
+          <input type="checkbox" />
+          <h2 class="collapse-title text-neutral-content underline">
+            Materialien anzeigen
+          </h2>
+          <div class="collapse-content">
+            <p>Eisenerz 70%</p>
+            <p>Gestein 25%</p>
+            <p>Silbererz 5%</p>
+          </div>
+        </div>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">Abbauen</button>
+        </div>
+      } @else {
+        <h2 class="card-title">Zur nächsten Ebene</h2>
+        <div class="flex">
+          <app-action-costs [duration]="180" [energyCosts]="2" />
+        </div>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">Hinabsteigen</button>
+        </div>
+      }
+    }
+  </div>
+</div>

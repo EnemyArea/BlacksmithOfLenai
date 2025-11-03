@@ -1,0 +1,37 @@
+<div class="card soft-gradient text-neutral-content">
+  <div class="card-body items-center text-center">
+    @if (!isPurchased) {
+      <h2 class="card-title">Kaufen</h2>
+      <p>🪙 2.000</p>
+      <div class="flex flex-row flex-wrap gap-1 items-stretch">
+        <button class="btn">💰</button>
+      </div>
+    } @else {
+      @if (haveCropPlanted) {
+        <h2 class="card-title">Unkraut</h2>
+        <app-skill-rating />
+        <app-crop-status-bar />
+
+        <app-action-costs
+          [duration]="180"
+          [energyCosts]="2"
+          [experience]="50"
+          [jobExperience]="10"
+          [jobType]="JobType.HerbCollector" />
+
+        <div class="flex flex-row flex-wrap gap-1 items-stretch">
+          <button class="btn">🧺</button>
+          <button class="btn">🌱</button>
+          <button class="btn">💧</button>
+          <button class="btn">⌛</button>
+        </div>
+      } @else {
+        <h2 class="card-title">Nichts gepflanzt</h2>
+        <p>Min. Stufe 3 Landwirtschaft</p>
+        <div class="flex flex-row flex-wrap gap-1 items-stretch">
+          <button class="btn">🌱</button>
+        </div>
+      }
+    }
+  </div>
+</div>
