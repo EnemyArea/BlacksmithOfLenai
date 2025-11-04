@@ -8,6 +8,7 @@ import { Forge } from './features/forge/forge';
 import { Mine } from './features/mine/mine';
 import { Equipment } from './features/equipment/equipment';
 import { Storage } from './features/storage/storage';
+import { Quests } from './features/quests/quests';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,9 @@ export const routes: Routes = [
   {
     path: 'storage',
     component: Storage,
+  },
+  {
+    path: 'quests',
+    component: Quests,
   },
 ];
