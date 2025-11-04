@@ -1,0 +1,27 @@
+<app-page-card [isCollapsible]="true">
+  <div class="p-2" card-header>
+    <app-page-sub-headline headline="Werkzeuge" />
+  </div>
+  <div class="flex flex-wrap">
+    @for (
+      tool of [
+        'Hacke',
+        'Gießkanne',
+        'Sichel',
+        'Spitzhacke',
+        'Axt',
+        'Hammer',
+        'Merker',
+        'Schere',
+        'Schaufel',
+      ];
+      track tool
+    ) {
+      <div
+        class="bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left flex-auto md:flex-none">
+        <p>{{ tool }}</p>
+        <app-skill-rating />
+      </div>
+    }
+  </div>
+</app-page-card>

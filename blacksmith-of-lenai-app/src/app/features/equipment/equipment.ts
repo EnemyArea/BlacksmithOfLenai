@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
-import { PageCard } from '../../shared/components/page-card/page-card';
-import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-sub-headline';
-import { SkillRating } from '../../shared/components/skill-rating/skill-rating';
+import { CharacterStatus } from './components/character-status/character-status';
+import { CharacterTools } from './components/character-tools/character-tools';
+import { CharacterItems } from './components/character-items/character-items';
 
 @Component({
   selector: 'app-equipment',
-  imports: [PageHeadline, PageCard, PageSubHeadline, SkillRating],
+  imports: [PageHeadline, CharacterStatus, CharacterTools, CharacterItems],
   templateUrl: './equipment.html',
   styleUrl: './equipment.css',
 })

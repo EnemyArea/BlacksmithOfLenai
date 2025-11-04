@@ -1,0 +1,28 @@
+<app-page-card>
+  <div class="p-2" card-header>
+    <app-page-sub-headline headline="Status" />
+  </div>
+  <app-character-status-list
+    [characterStatusList]="[
+      { name: 'Lebenspunkte', value: 1000 },
+      { name: 'Manapunkte', value: 1000 },
+    ]" />
+
+  <h3 class="mb-4 w-full border-b pl-2">Offensiv</h3>
+  <app-character-status-list
+    [characterStatusList]="[
+      { name: 'Min. Phy. Schaden', value: 1000 },
+      { name: 'Max. Phy. Schaden', value: 1000 },
+      { name: 'Min. Mag. Schaden', value: 1000 },
+      { name: 'Max. Mag. Schaden', value: 1000 },
+    ]" />
+
+  <h3 class="mb-4 w-full border-b pl-2">Defensiv</h3>
+  <app-character-status-list
+    [characterStatusList]="[
+      { name: 'Trefferwertung', value: 1000 },
+      { name: 'Ausweichwertung', value: 1000 },
+      { name: 'Phy. Verteidigung', value: 1000 },
+      { name: 'Mag. Verteidigung', value: 1000 },
+    ]" />
+</app-page-card>

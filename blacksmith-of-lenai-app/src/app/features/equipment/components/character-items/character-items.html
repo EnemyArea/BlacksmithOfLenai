@@ -1,0 +1,30 @@
+<app-page-card>
+  <div class="p-2" card-header>
+    <app-page-sub-headline headline="Ausrüstung" />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    @for (
+      tool of [
+        'Kopf',
+        'Brust',
+        'Schmuck',
+        'Umhang',
+        'Beine',
+        'Schuhe',
+        'Rechte Hand',
+        'Linke Hand',
+      ];
+      track tool
+    ) {
+      <div
+        class="flex bg-base-100 p-4 pr-6 pl-6 rounded-box m-1 text-left gap-2">
+        <div class="flex flex-col w-full">
+          <p class="text-secondary">{{ tool }}</p>
+          <p>Eisen-{{ tool }}</p>
+        </div>
+        <button class="btn drawer-button">?</button>
+        <button class="btn drawer-button">Wechseln</button>
+      </div>
+    }
+  </div>
+</app-page-card>
