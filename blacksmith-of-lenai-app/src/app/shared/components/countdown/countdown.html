@@ -1,0 +1,31 @@
+@if (timePassedInternal === 0) {
+  <span class="alert alert-soft alert-success p-1 pl-2 pr-2">{{
+    completedLabel
+  }}</span>
+} @else {
+  <span class="countdown pl-1">
+    <span
+      aria-label="{{ hours }}"
+      aria-live="polite"
+      [style.--value]="hours"
+      style="--digits: 2"
+      >{{ hours }}</span
+    >
+    :
+    <span
+      aria-label="{{ minutes }}"
+      aria-live="polite"
+      [style.--value]="minutes"
+      style="--digits: 2"
+      >{{ minutes }}</span
+    >
+    :
+    <span
+      aria-label="{{ seconds }}"
+      aria-live="polite"
+      [style.--value]="seconds"
+      style="--digits: 2"
+      >{{ seconds }}</span
+    >
+  </span>
+}

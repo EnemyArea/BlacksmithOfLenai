@@ -1,16 +1,31 @@
 <div class="flex flex-col gap-4 pb-4">
   <app-page-headline headline="Garten" />
-  <div class="flex flex-wrap gap-2">
-    <button class="btn">🧺 Alles einsammeln</button>
-    <button class="btn">🌱 Alles neubepflanzen</button>
-    <button class="btn">💧 Alles gießen</button>
-    <button class="btn">⌛ Alles düngen</button>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    @for (level of fields; track level) {
-      <app-crop-card
-        [haveCropPlanted]="level === 4"
-        [isPurchased]="level === 4 || level === 6" />
-    }
-  </div>
+  @if (playerGarden) {
+    <div class="flex flex-wrap gap-2">
+      <button class="btn">
+        🧺 Alles einsammeln
+        <app-energy-display [energy]="getMaxEnergyCostsHarvesting()" />
+      </button>
+      <button class="btn">
+        🌱 Alles neubepflanzen
+        <app-energy-display [energy]="getMaxEnergyCostsReplanting()" />
+      </button>
+      <button class="btn">
+        💧 Alles gießen
+        <app-energy-display [energy]="getMaxEnergyCostsWatering()" />
+      </button>
+      <button class="btn">
+        ⌛ Alles düngen
+        <app-energy-display [energy]="getMaxEnergyCostsFertilizing()" />
+      </button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      @for (
+        cultivableField of playerGarden.cultivableFields;
+        track cultivableField
+      ) {
+        <app-crop-card [cultivableField]="cultivableField" />
+      }
+    </div>
+  }
 </div>

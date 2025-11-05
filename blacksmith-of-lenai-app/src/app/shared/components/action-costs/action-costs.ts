@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DurationPipe } from '../../pipes/duration.pipe';
+import { DurationPipe } from '../../pipes/duration-pipe';
 import { JobType } from '../../enums/job-type';
 
 @Component({
