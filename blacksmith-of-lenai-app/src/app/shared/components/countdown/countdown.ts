@@ -5,7 +5,7 @@ import {
   OnInit,
   OnDestroy,
   input,
-  Signal,
+  output,
 } from '@angular/core';
 
 @Component({
@@ -17,13 +17,14 @@ import {
 export class Countdown implements OnInit, OnDestroy {
   private interval = 0;
   private _timePassed = signal(0);
-  private _completed = signal(false);
-  completed: Signal<boolean> = this._completed.asReadonly();
+  protected _completed = signal(false);
 
   @Input()
   set initialTime(value: number) {
     this._timePassed.set(value);
   }
+
+  completed = output<void>();
 
   completedLabel = input('Fertig');
   seconds = signal(0);
@@ -38,6 +39,7 @@ export class Countdown implements OnInit, OnDestroy {
 
       if (this._timePassed() <= 0) {
         this._completed.set(true);
+        this.completed.emit();
         window.clearInterval(this.interval);
       }
     }, 1000);

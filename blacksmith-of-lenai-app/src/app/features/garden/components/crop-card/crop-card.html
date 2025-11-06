@@ -21,7 +21,9 @@
             [isIrrigated]="cultivableField.isIrrigated"
             [isFertilized]="cultivableField.isFertilized" />
         }
-        <app-countdown #countdown [initialTime]="cultivableField.timePassed" />
+        <app-countdown
+          (completed)="onCountdownCompleted()"
+          [initialTime]="cultivableField.timePassed" />
         <app-action-costs
           [experience]="cultivableField.gardenCrop.experience"
           [jobExperience]="cultivableField.gardenCrop.jobExperience"

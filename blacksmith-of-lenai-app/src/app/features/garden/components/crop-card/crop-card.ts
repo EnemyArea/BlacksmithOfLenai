@@ -1,14 +1,4 @@
-import {
-  Component,
-  computed,
-  Input,
-  ViewChild,
-  signal,
-  effect,
-  AfterViewInit,
-  inject,
-  Injector,
-} from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { ActionCosts } from '../../../../shared/components/action-costs/action-costs';
 import { CropStatusBar } from '../crop-status-bar/crop-status-bar';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
@@ -33,12 +23,10 @@ import { EnergyDisplay } from '../../../../shared/components/energy-display/ener
   templateUrl: './crop-card.html',
   styleUrl: './crop-card.css',
 })
-export class CropCard implements AfterViewInit {
-  private injector = inject(Injector);
+export class CropCard {
   protected readonly JobType = JobType;
   protected isCompleted = signal(false); // Writable Signal
 
-  @ViewChild('countdown') countdown?: Countdown;
   @Input() cultivableField?: CultivableField = undefined;
 
   canHarvested = computed(() => this.isCompleted());
@@ -50,16 +38,7 @@ export class CropCard implements AfterViewInit {
     () => !this.isCompleted() && this.cultivableField?.isFertilized === false
   );
 
-  ngAfterViewInit() {
-    effect(
-      () => {
-        if (this.countdown && this.countdown.completed()) {
-          this.isCompleted.set(this.countdown!.completed());
-        }
-      },
-      {
-        injector: this.injector,
-      }
-    );
+  onCountdownCompleted() {
+    this.isCompleted.set(true);
   }
 }
