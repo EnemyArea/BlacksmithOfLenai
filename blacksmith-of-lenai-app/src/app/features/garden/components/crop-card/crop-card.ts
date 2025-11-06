@@ -1,4 +1,14 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  computed,
+  Input,
+  ViewChild,
+  signal,
+  effect,
+  AfterViewInit,
+  inject,
+  Injector,
+} from '@angular/core';
 import { ActionCosts } from '../../../../shared/components/action-costs/action-costs';
 import { CropStatusBar } from '../crop-status-bar/crop-status-bar';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
@@ -23,30 +33,33 @@ import { EnergyDisplay } from '../../../../shared/components/energy-display/ener
   templateUrl: './crop-card.html',
   styleUrl: './crop-card.css',
 })
-export class CropCard {
+export class CropCard implements AfterViewInit {
+  private injector = inject(Injector);
   protected readonly JobType = JobType;
-  protected isCompleted = false;
+  protected isCompleted = signal(false); // Writable Signal
 
+  @ViewChild('countdown') countdown?: Countdown;
   @Input() cultivableField?: CultivableField = undefined;
 
-  onCountdownCompleted = (): void => {
-    this.isCompleted = true;
-    console.log('onCountdownCompleted');
-  };
+  canHarvested = computed(() => this.isCompleted());
+  canReplanted = computed(() => !this.isCompleted());
+  canIrrigated = computed(
+    () => !this.isCompleted() && this.cultivableField?.isIrrigated === false
+  );
+  canFertilized = computed(
+    () => !this.isCompleted() && this.cultivableField?.isFertilized === false
+  );
 
-  checkCanHarvested = (): boolean => {
-    return this.isCompleted;
-  };
-
-  checkCanReplanted = (): boolean => {
-    return !this.isCompleted;
-  };
-
-  checkCanIrrigated = (): boolean => {
-    return !this.isCompleted && this.cultivableField?.isIrrigated === false;
-  };
-
-  checkCanFertilized = (): boolean => {
-    return !this.isCompleted && this.cultivableField?.isFertilized === false;
-  };
+  ngAfterViewInit() {
+    effect(
+      () => {
+        if (this.countdown && this.countdown.completed()) {
+          this.isCompleted.set(this.countdown!.completed());
+        }
+      },
+      {
+        injector: this.injector,
+      }
+    );
+  }
 }

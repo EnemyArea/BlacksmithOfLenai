@@ -10,7 +10,11 @@
   } @else {
     @if (isOreVein) {
       <h2 class="card-title">Eisenerzader</h2>
-      <app-skill-rating />
+      <app-skill-rating
+        [currentLevel]="1"
+        [maxLevel]="10"
+        [currentExp]="10000"
+        [nextLevelExp]="12000" />
 
       <div class="flex">
         <div class="items-center justify-top p-2 w-20">

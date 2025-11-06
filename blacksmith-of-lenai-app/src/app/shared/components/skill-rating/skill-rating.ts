@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-skill-rating',
@@ -7,8 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './skill-rating.css',
 })
 export class SkillRating {
-  @Input() currentLevel = 0;
-  @Input() maxLevel = 0;
-  @Input() currentExp = 0;
-  @Input() nextLevelExp = 0;
+  protected levelList: number[] = [];
+
+  maxLevel = input.required<number>();
+  currentExp = input.required<number>();
+  nextLevelExp = input.required<number>();
+  currentLevel = input.required<number>();
 }

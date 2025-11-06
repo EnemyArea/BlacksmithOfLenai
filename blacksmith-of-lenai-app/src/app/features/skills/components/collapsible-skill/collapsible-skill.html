@@ -3,8 +3,9 @@
   <div class="collapse-title font-semibold flex items-center justify-between">
     <p>{{ skillName }}</p>
     <app-skill-rating
-      [currentExp]="10000"
       [currentLevel]="skillLevel"
+      [maxLevel]="10"
+      [currentExp]="10000"
       [nextLevelExp]="12000" />
   </div>
   <div class="collapse-content text-sm">

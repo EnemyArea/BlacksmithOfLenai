@@ -11,37 +11,39 @@
         <h2 class="card-title">
           {{ cultivableField.gardenCrop.gardenCropName }}
         </h2>
-        <app-skill-rating />
-        @if (!isCompleted) {
+        <app-skill-rating
+          [nextLevelExp]="0"
+          [currentExp]="0"
+          [currentLevel]="0"
+          [maxLevel]="0" />
+        @if (!isCompleted()) {
           <app-crop-status-bar
             [isIrrigated]="cultivableField.isIrrigated"
             [isFertilized]="cultivableField.isFertilized" />
         }
-        <app-countdown
-          [timePassed]="cultivableField.timePassed"
-          (countdownCompleted)="onCountdownCompleted()" />
+        <app-countdown #countdown [initialTime]="cultivableField.timePassed" />
         <app-action-costs
           [experience]="cultivableField.gardenCrop.experience"
           [jobExperience]="cultivableField.gardenCrop.jobExperience"
           [jobType]="cultivableField.gardenCrop.jobType" />
 
         <div class="grid grid-cols-4 gap-1">
-          <button class="btn text-nowrap" [disabled]="!checkCanHarvested()">
+          <button class="btn text-nowrap" [disabled]="!canHarvested()">
             🧺
             <app-energy-display
               [energy]="cultivableField.gardenCrop.energyCostsHarvest" />
           </button>
-          <button class="btn text-nowrap" [disabled]="!checkCanReplanted()">
+          <button class="btn text-nowrap" [disabled]="!canReplanted()">
             🌱
             <app-energy-display
               [energy]="cultivableField.gardenCrop.energyCostsReplant" />
           </button>
-          <button class="btn text-nowrap" [disabled]="!checkCanIrrigated()">
+          <button class="btn text-nowrap" [disabled]="!canIrrigated()">
             💧
             <app-energy-display
               [energy]="cultivableField.gardenCrop.energyCostsIrrigation" />
           </button>
-          <button class="btn text-nowrap" [disabled]="!checkCanFertilized()">
+          <button class="btn text-nowrap" [disabled]="!canFertilized()">
             ⌛
             <app-energy-display
               [energy]="cultivableField.gardenCrop.energyCostsFertilize" />
