@@ -22,7 +22,7 @@
             [isFertilized]="cultivableField.isFertilized" />
         }
         <app-countdown
-          (completed)="onCountdownCompleted()"
+          (completedOutput)="onCountdownCompleted()"
           [initialTime]="cultivableField.timePassed" />
         <app-action-costs
           [experience]="cultivableField.gardenCrop.experience"

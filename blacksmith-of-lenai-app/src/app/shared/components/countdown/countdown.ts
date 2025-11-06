@@ -24,7 +24,7 @@ export class Countdown implements OnInit, OnDestroy {
     this._timePassed.set(value);
   }
 
-  completed = output<void>();
+  completedOutput = output<void>();
 
   completedLabel = input('Fertig');
   seconds = signal(0);
@@ -39,7 +39,7 @@ export class Countdown implements OnInit, OnDestroy {
 
       if (this._timePassed() <= 0) {
         this._completed.set(true);
-        this.completed.emit();
+        this.completedOutput.emit();
         window.clearInterval(this.interval);
       }
     }, 1000);
