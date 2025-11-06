@@ -1,5 +1,5 @@
 <div class="rating rating-xl rating-half">
-  @for (level of levelList; track level) {
+  @for (level of levelList(); track level) {
     @if (currentLevel() === level) {
       <div
         aria-current="true"

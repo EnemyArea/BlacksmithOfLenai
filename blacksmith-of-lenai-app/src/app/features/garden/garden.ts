@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { JobType } from '../../shared/enums/job-type';
 import { CropCard } from './components/crop-card/crop-card';
@@ -8,6 +8,7 @@ import {
 } from '../../shared/models/player-garden';
 import { sumBy } from '../../shared/helper/linq';
 import { EnergyDisplay } from '../../shared/components/energy-display/energy-display';
+import { PlayerService } from '../../core/services/player-service';
 
 @Component({
   selector: 'app-garden',
@@ -16,78 +17,81 @@ import { EnergyDisplay } from '../../shared/components/energy-display/energy-dis
   styleUrl: './garden.css',
 })
 export class Garden implements OnInit {
+  private playerService = inject(PlayerService);
   protected readonly JobType = JobType;
-
   protected maxCultivableFields = 9;
-  protected playerGarden?: PlayerGarden = undefined;
+  protected playerGarden?: PlayerGarden;
+
+  maxEnergyCostsHarvesting = computed(() => this.getMaxEnergyCostsHarvesting());
+  maxEnergyCostsReplanting = computed(() => this.getMaxEnergyCostsReplanting());
+  maxEnergyCostsIrrigation = computed(() => this.getMaxEnergyCostsIrrigation());
+  maxEnergyCostsFertilizing = computed(() =>
+    this.getMaxEnergyCostsFertilizing()
+  );
 
   ngOnInit() {
+    const playerGardenData = this.playerService.getPlayerGarden();
     const cultivableFields: CultivableField[] = [];
-    for (let i = 0; i < this.maxCultivableFields; i++) {
-      cultivableFields[i] = {
-        timePassed: 0,
-        isPurchased: false,
-        isIrrigated: false,
-        isFertilized: false,
-        price: i * 1000,
-      };
-    }
 
-    cultivableFields[0] = {
-      isPurchased: true,
-      isIrrigated: false,
-      isFertilized: false,
-      price: 0,
-      timePassed: 10,
-      gardenCrop: {
-        gardenCropId: 'dc2aa218-c368-46eb-a7a2-ad356d624b6e',
-        gardenCropName: 'Unkraut',
-        duration: 180,
-        energyCostsPlant: 2,
-        energyCostsHarvest: 2,
-        energyCostsFertilize: 2,
-        energyCostsIrrigation: 2,
-        energyCostsReplant: 2,
-        jobType: JobType.HerbCollector,
-        experience: 100,
-        jobExperience: 100,
-      },
-    };
+    for (let i = 0; i < this.maxCultivableFields; i++) {
+      const cultivableField = playerGardenData.cultivableFields[i];
+      if (cultivableField) {
+        cultivableFields[i] = {
+          timePassed: cultivableField.timePassed,
+          isPurchased: cultivableField.isPurchased,
+          isIrrigated: cultivableField.isIrrigated,
+          isFertilized: cultivableField.isFertilized,
+          price: cultivableField.price,
+          gardenCrop: cultivableField.gardenCrop,
+          playerSkillExperience: cultivableField.playerSkillExperience,
+        };
+      } else {
+        cultivableFields[i] = {
+          timePassed: 0,
+          isPurchased: false,
+          isIrrigated: false,
+          isFertilized: false,
+          price: i * 1000,
+        };
+      }
+    }
 
     this.playerGarden = {
       cultivableFields: cultivableFields,
     };
   }
 
-  getMaxEnergyCostsHarvesting(): number {
+  private getMaxEnergyCostsHarvesting(): number {
     if (!this.playerGarden) return 0;
     return sumBy(
-      this.playerGarden.cultivableFields,
+      Object.values(this.playerGarden.cultivableFields),
       x => x.gardenCrop?.energyCostsHarvest ?? 0
     );
   }
 
-  getMaxEnergyCostsReplanting(): number {
+  private getMaxEnergyCostsReplanting(): number {
     if (!this.playerGarden) return 0;
     return sumBy(
-      this.playerGarden.cultivableFields,
+      Object.values(this.playerGarden.cultivableFields),
       x => x.gardenCrop?.energyCostsReplant ?? 0
     );
   }
 
-  getMaxEnergyCostsWatering(): number {
+  private getMaxEnergyCostsIrrigation(): number {
     if (!this.playerGarden) return 0;
     return sumBy(
-      this.playerGarden.cultivableFields,
+      Object.values(this.playerGarden.cultivableFields),
       x => x.gardenCrop?.energyCostsIrrigation ?? 0
     );
   }
 
-  getMaxEnergyCostsFertilizing(): number {
+  private getMaxEnergyCostsFertilizing(): number {
     if (!this.playerGarden) return 0;
     return sumBy(
-      this.playerGarden.cultivableFields,
+      Object.values(this.playerGarden.cultivableFields),
       x => x.gardenCrop?.energyCostsFertilize ?? 0
     );
   }
+
+  protected readonly Object = Object;
 }

@@ -12,10 +12,14 @@
           {{ cultivableField.gardenCrop.gardenCropName }}
         </h2>
         <app-skill-rating
-          [nextLevelExp]="0"
-          [currentExp]="0"
-          [currentLevel]="0"
-          [maxLevel]="0" />
+          [nextLevelExp]="
+            cultivableField.playerSkillExperience?.nextLevelExp ?? 0
+          "
+          [currentExp]="cultivableField.playerSkillExperience?.currentExp ?? 0"
+          [currentLevel]="
+            cultivableField.playerSkillExperience?.currentLevel ?? 0
+          "
+          [maxLevel]="cultivableField.playerSkillExperience?.maxLevel ?? 0" />
         @if (!isCompleted()) {
           <app-crop-status-bar
             [isIrrigated]="cultivableField.isIrrigated"

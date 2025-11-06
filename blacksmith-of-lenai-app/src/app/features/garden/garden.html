@@ -4,24 +4,24 @@
     <div class="flex flex-wrap gap-2">
       <button class="btn">
         🧺 Alles einsammeln
-        <app-energy-display [energy]="getMaxEnergyCostsHarvesting()" />
+        <app-energy-display [energy]="maxEnergyCostsHarvesting()" />
       </button>
       <button class="btn">
         🌱 Alles neubepflanzen
-        <app-energy-display [energy]="getMaxEnergyCostsReplanting()" />
+        <app-energy-display [energy]="maxEnergyCostsReplanting()" />
       </button>
       <button class="btn">
         💧 Alles gießen
-        <app-energy-display [energy]="getMaxEnergyCostsWatering()" />
+        <app-energy-display [energy]="maxEnergyCostsIrrigation()" />
       </button>
       <button class="btn">
         ⌛ Alles düngen
-        <app-energy-display [energy]="getMaxEnergyCostsFertilizing()" />
+        <app-energy-display [energy]="maxEnergyCostsFertilizing()" />
       </button>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       @for (
-        cultivableField of playerGarden.cultivableFields;
+        cultivableField of Object.values(playerGarden.cultivableFields);
         track cultivableField
       ) {
         <app-crop-card [cultivableField]="cultivableField" />
