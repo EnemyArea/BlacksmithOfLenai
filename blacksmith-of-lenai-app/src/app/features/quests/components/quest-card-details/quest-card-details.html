@@ -1,16 +1,14 @@
-@if (playerQuest) {
-  <ul class="list-disc pl-8">
-    @for (
-      questDetail of playerQuest.questData.questDetails;
-      track questDetail
+<ul class="list-disc pl-8">
+  @for (
+    questDetail of playerQuest()?.questData?.questDetails;
+    track questDetail
+  ) {
+    @if (
+      playerQuest()?.completedQuestDetails?.includes(questDetail.questDetailId)
     ) {
-      @if (
-        playerQuest.completedQuestDetails.includes(questDetail.questDetailId)
-      ) {
-        <li class="line-through">{{ questDetail.questDetailName }}</li>
-      } @else {
-        <li>{{ questDetail.questDetailName }}</li>
-      }
+      <li class="line-through">{{ questDetail.questDetailName }}</li>
+    } @else {
+      <li>{{ questDetail.questDetailName }}</li>
     }
-  </ul>
-}
+  }
+</ul>

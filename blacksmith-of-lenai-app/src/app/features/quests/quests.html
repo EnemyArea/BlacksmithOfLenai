@@ -3,7 +3,7 @@
     <app-page-headline headline="Tagebuch" />
     <div class="flex flex-col gap-2">
       <app-quest-tabs />
-      @for (playerQuest of playerQuests; track playerQuest) {
+      @for (playerQuest of playerQuests(); track playerQuest) {
         <app-quest-card [playerQuest]="playerQuest" [isOpen]="$index === 0" />
       }
     </div>

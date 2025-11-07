@@ -1,67 +1,69 @@
 <app-page-card>
-  @if (cultivableField) {
-    @if (!cultivableField.isPurchased) {
-      <h2 class="card-title">Kaufen</h2>
-      <p>🪙 {{ cultivableField.price | money }}</p>
-      <div class="flex flex-row flex-wrap gap-1 items-stretch">
-        <button class="btn">💰</button>
+  @if (!cultivableField()?.isPurchased) {
+    <h2 class="card-title">Kaufen</h2>
+    <p>🪙 {{ cultivableField()?.price | money }}</p>
+    <div class="flex flex-row flex-wrap gap-1 items-stretch">
+      <button class="btn">💰</button>
+    </div>
+  } @else {
+    @if (cultivableField()?.gardenCrop) {
+      <h2 class="card-title">
+        {{ cultivableField()?.gardenCrop?.gardenCropName }}
+      </h2>
+      <app-skill-rating
+        [nextLevelExp]="
+          cultivableField()?.playerSkillExperience?.nextLevelExp ?? 0
+        "
+        [currentExp]="cultivableField()?.playerSkillExperience?.currentExp ?? 0"
+        [currentLevel]="
+          cultivableField()?.playerSkillExperience?.currentLevel ?? 0
+        "
+        [maxLevel]="cultivableField()?.playerSkillExperience?.maxLevel ?? 0" />
+      @if (!isCompleted()) {
+        <app-crop-status-bar
+          [isIrrigated]="cultivableField()?.isIrrigated ?? false"
+          [isFertilized]="cultivableField()?.isFertilized ?? false" />
+      }
+      <app-countdown
+        (completedOutput)="onCountdownCompleted()"
+        [initialTime]="cultivableField()?.timePassed ?? 0" />
+      <app-action-costs
+        [experience]="cultivableField()?.gardenCrop?.experience"
+        [jobExperience]="cultivableField()?.gardenCrop?.jobExperience"
+        [jobType]="cultivableField()?.gardenCrop?.jobType" />
+
+      <div class="grid grid-cols-4 gap-1">
+        <button class="btn text-nowrap" [disabled]="!canHarvested()">
+          🧺
+          <app-energy-display
+            [energy]="cultivableField()?.gardenCrop?.energyCostsHarvest ?? 0" />
+        </button>
+        <button class="btn text-nowrap" [disabled]="!canReplanted()">
+          🌱
+          <app-energy-display
+            [energy]="cultivableField()?.gardenCrop?.energyCostsReplant ?? 0" />
+        </button>
+        <button class="btn text-nowrap" [disabled]="!canIrrigated()">
+          💧
+          <app-energy-display
+            [energy]="
+              cultivableField()?.gardenCrop?.energyCostsIrrigation ?? 0
+            " />
+        </button>
+        <button class="btn text-nowrap" [disabled]="!canFertilized()">
+          ⌛
+          <app-energy-display
+            [energy]="
+              cultivableField()?.gardenCrop?.energyCostsFertilize ?? 0
+            " />
+        </button>
       </div>
     } @else {
-      @if (cultivableField.gardenCrop) {
-        <h2 class="card-title">
-          {{ cultivableField.gardenCrop.gardenCropName }}
-        </h2>
-        <app-skill-rating
-          [nextLevelExp]="
-            cultivableField.playerSkillExperience?.nextLevelExp ?? 0
-          "
-          [currentExp]="cultivableField.playerSkillExperience?.currentExp ?? 0"
-          [currentLevel]="
-            cultivableField.playerSkillExperience?.currentLevel ?? 0
-          "
-          [maxLevel]="cultivableField.playerSkillExperience?.maxLevel ?? 0" />
-        @if (!isCompleted()) {
-          <app-crop-status-bar
-            [isIrrigated]="cultivableField.isIrrigated"
-            [isFertilized]="cultivableField.isFertilized" />
-        }
-        <app-countdown
-          (completedOutput)="onCountdownCompleted()"
-          [initialTime]="cultivableField.timePassed" />
-        <app-action-costs
-          [experience]="cultivableField.gardenCrop.experience"
-          [jobExperience]="cultivableField.gardenCrop.jobExperience"
-          [jobType]="cultivableField.gardenCrop.jobType" />
-
-        <div class="grid grid-cols-4 gap-1">
-          <button class="btn text-nowrap" [disabled]="!canHarvested()">
-            🧺
-            <app-energy-display
-              [energy]="cultivableField.gardenCrop.energyCostsHarvest" />
-          </button>
-          <button class="btn text-nowrap" [disabled]="!canReplanted()">
-            🌱
-            <app-energy-display
-              [energy]="cultivableField.gardenCrop.energyCostsReplant" />
-          </button>
-          <button class="btn text-nowrap" [disabled]="!canIrrigated()">
-            💧
-            <app-energy-display
-              [energy]="cultivableField.gardenCrop.energyCostsIrrigation" />
-          </button>
-          <button class="btn text-nowrap" [disabled]="!canFertilized()">
-            ⌛
-            <app-energy-display
-              [energy]="cultivableField.gardenCrop.energyCostsFertilize" />
-          </button>
-        </div>
-      } @else {
-        <h2 class="card-title">Nichts gepflanzt</h2>
-        <p>Min. Stufe 3 Landwirtschaft</p>
-        <div class="flex flex-row flex-wrap gap-1 items-stretch">
-          <button class="btn">🌱</button>
-        </div>
-      }
+      <h2 class="card-title">Nichts gepflanzt</h2>
+      <p>Min. Stufe 3 Landwirtschaft</p>
+      <div class="flex flex-row flex-wrap gap-1 items-stretch">
+        <button class="btn">🌱</button>
+      </div>
     }
   }
 </app-page-card>

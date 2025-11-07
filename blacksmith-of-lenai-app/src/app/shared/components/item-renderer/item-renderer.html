@@ -1,13 +1,11 @@
-@if (itemData) {
-  <div
-    class="flex bg-base-100 p-3 gap-2 rounded-box m-1 text-left items-center w-full">
-    <img
-      alt="recipeicon"
-      class="rounded-2xl w-12"
-      src="{{ itemData.itemIcon }}" />
-    <div>
-      <p class="text-secondary">{{ itemData.itemName }}</p>
-      <p>{{ itemCount }}x</p>
-    </div>
+<div
+  class="flex bg-base-100 p-3 gap-2 rounded-box m-1 text-left items-center w-full">
+  <img
+    alt="recipeicon"
+    class="rounded-2xl w-12"
+    src="{{ itemData()?.itemIcon }}" />
+  <div>
+    <p class="text-secondary">{{ itemData()?.itemName }}</p>
+    <p>{{ itemCount() }}x</p>
   </div>
-}
+</div>

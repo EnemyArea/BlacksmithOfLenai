@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 import { ActionCosts } from '../../../../shared/components/action-costs/action-costs';
 import { CropStatusBar } from '../crop-status-bar/crop-status-bar';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
@@ -27,15 +27,15 @@ export class CropCard {
   protected readonly JobType = JobType;
   protected isCompleted = signal(false); // Writable Signal
 
-  @Input() cultivableField?: CultivableField = undefined;
+  cultivableField = input.required<CultivableField | undefined>();
 
   canHarvested = computed(() => this.isCompleted());
   canReplanted = computed(() => !this.isCompleted());
   canIrrigated = computed(
-    () => !this.isCompleted() && this.cultivableField?.isIrrigated === false
+    () => !this.isCompleted() && this.cultivableField()?.isIrrigated === false
   );
   canFertilized = computed(
-    () => !this.isCompleted() && this.cultivableField?.isFertilized === false
+    () => !this.isCompleted() && this.cultivableField()?.isFertilized === false
   );
 
   onCountdownCompleted() {

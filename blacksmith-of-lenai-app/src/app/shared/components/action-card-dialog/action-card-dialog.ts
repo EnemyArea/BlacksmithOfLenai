@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-action-card-dialog',
@@ -10,10 +10,10 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
   },
 })
 export class ActionCardDialog {
-  @Input() figure = '';
-  @Input() dialogText = '';
-  @Input() secondaryBtnLabel = '';
-  @Input() primaryBtnLabel = '';
+  figure = input<string>();
+  dialogText = input.required<string>();
+  secondaryBtnLabel = input<string>();
+  primaryBtnLabel = input<string>();
 
   @ViewChild('baseDialog') baseDialog!: ElementRef<HTMLDialogElement>;
 

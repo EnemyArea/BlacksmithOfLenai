@@ -1,16 +1,16 @@
 <div class="collapse collapse-arrow">
   <input checked type="checkbox" />
   <div class="collapse-title text-2xl font-bold w-full border-b mb-4 p-2 pt-0">
-    {{ teaserTitle }}
+    {{ teaserTitle() }}
   </div>
   <div class="collapse-content">
     <div
       class="alert alert-info alert-soft text-lg flex flex-wrap lg:flex-nowrap flex-row items-start">
       <div class="bg-base-100 mask-radial-from-success max-h-32">
-        <img alt="teaser" src="{{ teaserFigure }}" />
+        <img alt="teaser" src="{{ teaserFigure() }}" />
       </div>
       <p class="text-base">
-        {{ teaserText }}
+        {{ teaserText() }}
       </p>
     </div>
   </div>

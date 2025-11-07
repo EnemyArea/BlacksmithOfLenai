@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ItemData } from '../../models/item-data';
 
 @Component({
@@ -8,6 +8,6 @@ import { ItemData } from '../../models/item-data';
   styleUrl: './item-renderer.css',
 })
 export class ItemRenderer {
-  @Input() itemData: ItemData | undefined;
-  @Input() itemCount = 0;
+  itemData = input.required<ItemData | undefined>();
+  itemCount = input.required<number>();
 }

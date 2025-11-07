@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ActionCosts } from '../../../../shared/components/action-costs/action-costs';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
 import { JobType } from '../../../../shared/enums/job-type';
@@ -14,7 +14,7 @@ import { PageCard } from '../../../../shared/components/page-card/page-card';
   },
 })
 export class MineVeinCard {
-  @Input() isRevealed = false;
-  @Input() isOreVein = false;
   protected readonly JobType = JobType;
+  isRevealed = input.required<boolean>();
+  isOreVein = input.required<boolean>();
 }

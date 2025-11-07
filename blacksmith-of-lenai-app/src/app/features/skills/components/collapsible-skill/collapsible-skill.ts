@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SkillPerk } from '../skill-perk/skill-perk';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
 import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
@@ -10,8 +10,8 @@ import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
   styleUrl: './collapsible-skill.css',
 })
 export class CollapsibleSkill {
-  @Input() skillName = '';
-  @Input() skillLevel = 0;
-  @Input() currentSkillExp = 0;
-  @Input() skillPerkList: SkillPerkData[] = [];
+  skillName = input.required<string>();
+  skillLevel = input.required<number>();
+  currentSkillExp = input.required<number>();
+  skillPerkList = input.required<SkillPerkData[]>();
 }

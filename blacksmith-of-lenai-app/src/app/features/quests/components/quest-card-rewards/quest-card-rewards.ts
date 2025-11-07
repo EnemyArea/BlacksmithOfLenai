@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { PlayerQuest } from '../../../../shared/models/player-quest';
 
 @Component({
@@ -8,5 +8,5 @@ import { PlayerQuest } from '../../../../shared/models/player-quest';
   styleUrl: './quest-card-rewards.css',
 })
 export class QuestCardRewards {
-  @Input() playerQuest: PlayerQuest | undefined = undefined;
+  playerQuest = input.required<PlayerQuest | undefined>();
 }

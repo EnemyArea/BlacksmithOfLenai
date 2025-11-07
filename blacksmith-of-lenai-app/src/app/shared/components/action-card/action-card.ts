@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { JobType } from '../../enums/job-type';
 import { ActionCosts } from '../action-costs/action-costs';
 import { PageCard } from '../page-card/page-card';
@@ -13,18 +13,17 @@ import { PageCard } from '../page-card/page-card';
   },
 })
 export class ActionCard {
-  @Input() cardTitle = '';
-  @Input() cardDescription = '';
-  @Input() onActionBtnClick?: () => void;
-  @Input() actionBtnLabel = '';
-  @Input() energyCosts? = 0;
-  @Input() duration? = 0;
-  @Input() experience? = 0;
-  @Input() jobType? = JobType.Unknown;
+  cardTitle = input.required<string>();
+  cardDescription = input.required<string>();
+  actionBtnLabel = input.required<string>();
+  energyCosts = input<number>();
+  duration = input<number>();
+  experience = input<number>();
+  jobType = input<JobType>();
 
   handleActionBtnClick() {
-    if (this.onActionBtnClick) {
-      this.onActionBtnClick();
-    }
+    // if (this.onActionBtnClick) {
+    //   this.onActionBtnClick();
+    // }
   }
 }

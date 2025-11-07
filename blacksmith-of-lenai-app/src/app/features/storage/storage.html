@@ -8,7 +8,7 @@
           <app-storage-toolbar />
         </div>
         <div class="gap-2 w-full md:grid md:grid-cols-6">
-          @for (item of storageItems; track item) {
+          @for (item of storageItems(); track item) {
             <app-item-renderer
               [itemData]="item.itemData"
               [itemCount]="item.itemCount" />

@@ -1,9 +1,18 @@
 <div class="flex flex-col gap-4 pb-4">
   <app-page-headline headline="Fähigkeiten" />
   <app-collapsible-skill
+    [currentSkillExp]="0"
     [skillLevel]="2"
-    [skillPerkList]="skillPerkListHerbs"
+    [skillPerkList]="skillPerkListHerbs()"
     skillName="Kräuterkunde" />
-  <app-collapsible-skill [skillLevel]="4" skillName="Waldarbeit" />
-  <app-collapsible-skill [skillLevel]="1" skillName="Kochen" />
+  <app-collapsible-skill
+    [currentSkillExp]="0"
+    [skillLevel]="4"
+    [skillPerkList]="[]"
+    skillName="Waldarbeit" />
+  <app-collapsible-skill
+    [currentSkillExp]="0"
+    [skillLevel]="1"
+    [skillPerkList]="[]"
+    skillName="Kochen" />
 </div>

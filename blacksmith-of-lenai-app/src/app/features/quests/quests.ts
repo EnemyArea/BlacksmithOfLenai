@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { QuestTabs } from './components/quest-tabs/quest-tabs';
 import { QuestCard } from './components/quest-card/quest-card';
@@ -11,7 +11,7 @@ import { PlayerQuest } from '../../shared/models/player-quest';
   styleUrl: './quests.css',
 })
 export class Quests {
-  playerQuests: PlayerQuest[] = [
+  playerQuests = signal<PlayerQuest[]>([
     {
       isCompleted: false,
       completedQuestDetails: [],
@@ -52,5 +52,5 @@ export class Quests {
         questRewards: [{ experience: 100, money: 100 }],
       },
     },
-  ];
+  ]);
 }

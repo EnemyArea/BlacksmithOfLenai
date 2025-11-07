@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { PageCard } from '../../shared/components/page-card/page-card';
 import { ItemRenderer } from '../../shared/components/item-renderer/item-renderer';
@@ -14,7 +14,7 @@ import { StorageToolbar } from './components/storage-toolbar/storage-toolbar';
   styleUrl: './storage.css',
 })
 export class Storage {
-  storageItems: StorageItem[] = [
+  storageItems = signal<StorageItem[]>([
     {
       storageItemId: '142235a1-c9a0-4cc9-9c1a-c1ea9acb59fd',
       itemCount: 20,
@@ -25,5 +25,5 @@ export class Storage {
         itemType: ItemType.Commodities,
       },
     },
-  ];
+  ]);
 }

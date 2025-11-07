@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-energy-display',
@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './energy-display.css',
 })
 export class EnergyDisplay {
-  @Input() energy = 0;
+  energy = input.required<number>();
 }

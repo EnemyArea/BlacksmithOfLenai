@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { CollapsibleSkill } from './components/collapsible-skill/collapsible-skill';
 import { SkillPerkData } from '../../shared/models/skill-perk-data';
@@ -10,7 +10,7 @@ import { SkillPerkData } from '../../shared/models/skill-perk-data';
   styleUrl: './skills.css',
 })
 export class Skills {
-  skillPerkListHerbs: SkillPerkData[] = [
+  skillPerkListHerbs = signal<SkillPerkData[]>([
     {
       skillPerkId: 'f3010fee-cc7f-4e6a-bdf5-81caf1de8d87',
       skillPerkName: 'Kräuterkundiger',
@@ -24,5 +24,5 @@ export class Skills {
         'Du kannst nun Kräuter bis Stufe 4 finden und hast die Chance ein weiteres zu sammeln.',
       skillPerkIcon: 'moroccan-mint-2396530_640.jpg',
     },
-  ];
+  ]);
 }

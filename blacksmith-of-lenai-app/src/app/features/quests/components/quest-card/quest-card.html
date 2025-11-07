@@ -1,28 +1,26 @@
-@if (playerQuest) {
-  <div class="collapse collapse-arrow soft-gradient border border-base-300">
-    <input
-      name="quest-accordion"
-      type="radio"
-      checked="{{ isOpen ? 'checked' : '' }}" />
-    <div class="collapse-title font-semibold flex items-center justify-between">
-      @if (playerQuest.isCompleted) {
-        <h2 class="line-through">{{ playerQuest.questData.questName }}</h2>
-      } @else {
-        <h2>{{ playerQuest.questData.questName }}</h2>
-      }
-    </div>
-    <div class="collapse-content text-sm">
-      <div class="flex flex-col">
-        <div class="flex flex-col gap-2 mb-4">
-          <p class="text-base mb-4">
-            {{ playerQuest.questData.questDescription }}
-          </p>
-          <app-page-sub-headline headline="Details" />
-          <app-quest-card-details [playerQuest]="playerQuest" />
-        </div>
-        <app-page-sub-headline headline="Belohnung" />
-        <app-quest-card-rewards [playerQuest]="playerQuest" />
+<div class="collapse collapse-arrow soft-gradient border border-base-300">
+  <input
+    name="quest-accordion"
+    type="radio"
+    checked="{{ isOpen() ? 'checked' : '' }}" />
+  <div class="collapse-title font-semibold flex items-center justify-between">
+    @if (playerQuest()?.isCompleted) {
+      <h2 class="line-through">{{ playerQuest()?.questData?.questName }}</h2>
+    } @else {
+      <h2>{{ playerQuest()?.questData?.questName }}</h2>
+    }
+  </div>
+  <div class="collapse-content text-sm">
+    <div class="flex flex-col">
+      <div class="flex flex-col gap-2 mb-4">
+        <p class="text-base mb-4">
+          {{ playerQuest()?.questData?.questDescription }}
+        </p>
+        <app-page-sub-headline headline="Details" />
+        <app-quest-card-details [playerQuest]="playerQuest()" />
       </div>
+      <app-page-sub-headline headline="Belohnung" />
+      <app-quest-card-rewards [playerQuest]="playerQuest()" />
     </div>
   </div>
-}
+</div>

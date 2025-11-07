@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CropStatus } from '../../../../shared/enums/crop-status';
 
 @Component({
@@ -8,11 +8,11 @@ import { CropStatus } from '../../../../shared/enums/crop-status';
   styleUrl: './crop-status-bar-icon.css',
 })
 export class CropStatusBarIcon {
-  @Input() cropStatus = CropStatus.Unknown;
-  @Input() isNeeded = false;
+  cropStatus = input.required<CropStatus>();
+  isNeeded = input.required<boolean>();
 
   getCropStatusIcon = (): string => {
-    switch (this.cropStatus) {
+    switch (this.cropStatus()) {
       case CropStatus.Water:
         return '💧';
       case CropStatus.Fertilizer:

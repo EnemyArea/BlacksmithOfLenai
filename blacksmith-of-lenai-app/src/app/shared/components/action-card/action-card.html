@@ -1,16 +1,16 @@
 <app-page-card>
-  <h2 class="card-title">{{ cardTitle }}</h2>
+  <h2 class="card-title">{{ cardTitle() }}</h2>
   <p>
-    {{ cardDescription }}
+    {{ cardDescription() }}
   </p>
   <app-action-costs
-    [duration]="duration"
-    [energyCosts]="energyCosts"
-    [experience]="experience"
-    [jobType]="jobType" />
+    [duration]="duration()"
+    [energyCosts]="energyCosts()"
+    [experience]="experience()"
+    [jobType]="jobType()" />
   <div class="card-actions justify-end">
     <button (click)="handleActionBtnClick()" class="btn btn-primary">
-      {{ actionBtnLabel }}
+      {{ actionBtnLabel() }}
     </button>
   </div>
 </app-page-card>

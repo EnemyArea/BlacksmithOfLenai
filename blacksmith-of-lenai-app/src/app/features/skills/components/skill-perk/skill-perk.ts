@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-skill-perk',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './skill-perk.css',
 })
 export class SkillPerk {
-  @Input() perkIcon = '';
-  @Input() perkName = '';
-  @Input() perkDescription = '';
+  perkIcon = input.required<string>();
+  perkName = input.required<string>();
+  perkDescription = input.required<string>();
 }

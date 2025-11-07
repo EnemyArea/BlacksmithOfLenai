@@ -1,15 +1,13 @@
-@if (playerQuest) {
-  <div>
-    @for (
-      questReward of playerQuest.questData.questRewards;
-      track questReward
-    ) {
-      @if (questReward.experience) {
-        <p>⭐️ Erfahrung: {{ questReward.experience }}</p>
-      }
-      @if (questReward.money) {
-        <p>🪙️ Geld: {{ questReward.money }}</p>
-      }
+<div>
+  @for (
+    questReward of playerQuest()?.questData?.questRewards;
+    track questReward
+  ) {
+    @if (questReward.experience) {
+      <p>⭐️ Erfahrung: {{ questReward.experience }}</p>
     }
-  </div>
-}
+    @if (questReward.money) {
+      <p>🪙️ Geld: {{ questReward.money }}</p>
+    }
+  }
+</div>

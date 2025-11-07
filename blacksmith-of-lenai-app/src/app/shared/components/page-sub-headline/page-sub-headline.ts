@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-page-sub-headline',
@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './page-sub-headline.css',
 })
 export class PageSubHeadline {
-  @Input() headline = '';
+  headline = input.required<string>();
 }

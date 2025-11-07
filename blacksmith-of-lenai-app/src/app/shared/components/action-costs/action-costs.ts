@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { DurationPipe } from '../../pipes/duration-pipe';
 import { JobType } from '../../enums/job-type';
 
@@ -9,14 +9,14 @@ import { JobType } from '../../enums/job-type';
   styleUrl: './action-costs.css',
 })
 export class ActionCosts {
-  @Input() energyCosts? = 0;
-  @Input() duration? = 0;
-  @Input() experience? = 0;
-  @Input() jobType? = JobType.Unknown;
-  @Input() jobExperience? = 0;
+  energyCosts = input<number>();
+  duration = input<number>();
+  experience = input<number>();
+  jobType = input<JobType>();
+  jobExperience = input<number>();
 
   getJobTypeName = (): string => {
-    switch (this.jobType) {
+    switch (this.jobType()) {
       case JobType.HerbCollector:
         return 'Kräuterkunde';
       case JobType.Lumberjack:

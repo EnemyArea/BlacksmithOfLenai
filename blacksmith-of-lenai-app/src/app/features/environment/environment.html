@@ -32,7 +32,6 @@
   <div class="flex flex-wrap gap-4">
     <app-action-card
       [energyCosts]="1"
-      [onActionBtnClick]="openShieldDialog"
       actionBtnLabel="📖 Lesen"
       cardDescription="Wer weiß wer das geschrieben hat?"
       cardTitle="🪧 Das mit Moosbewachsene Schild lesen" />
@@ -40,7 +39,6 @@
     <app-action-card
       [duration]="180"
       [energyCosts]="4"
-      [onActionBtnClick]="openDeeperDialog"
       actionBtnLabel="🏃 Weiter gehen"
       cardDescription="Ein ein matschiger Pfad führt tiefer hinein. Welche Geheimnisse dort wohl auf dich warten werden?"
       cardTitle="🌳 Tiefer in den Wald hinein gehen" />
@@ -50,7 +48,6 @@
       [energyCosts]="4"
       [experience]="50"
       [jobType]="JobType.HerbCollector"
-      [onActionBtnClick]=""
       actionBtnLabel="🖐️ Aktion"
       cardDescription="Allerhand Pilze wachsen hier, du kennst einige davon, jedoch beim weitem nicht alle."
       cardTitle="🍄‍🟫 Die Pilze am Wegesrand sammeln" />
@@ -60,7 +57,6 @@
       [energyCosts]="4"
       [experience]="50"
       [jobType]="JobType.Lumberjack"
-      [onActionBtnClick]=""
       actionBtnLabel="🖐️ Aktion"
       cardDescription="Hier gibt es viel trockenes Holz, das kann man sehr gut anzünden."
       cardTitle="🌳 Brennholz sammeln" />

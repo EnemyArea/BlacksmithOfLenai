@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CharacterStatusData } from '../../../../shared/models/character-status-data';
 
 @Component({
@@ -8,5 +8,5 @@ import { CharacterStatusData } from '../../../../shared/models/character-status-
   styleUrl: './character-status-list.css',
 })
 export class CharacterStatusList {
-  @Input() characterStatusList: CharacterStatusData[] = [];
+  characterStatusList = input.required<CharacterStatusData[]>();
 }
