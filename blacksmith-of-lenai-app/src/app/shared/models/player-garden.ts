@@ -2,10 +2,12 @@ import { JobType } from '../enums/job-type';
 import { PlayerSkillExperience } from './player-skill-experience';
 
 export interface PlayerGarden {
-  cultivableFields: Record<number, CultivableField>;
+  cultivableFields: CultivableField[];
 }
 
 export interface CultivableField {
+  playerGardenFieldId: string;
+  fieldIndex: number;
   isPurchased: boolean;
   isIrrigated: boolean;
   isFertilized: boolean;

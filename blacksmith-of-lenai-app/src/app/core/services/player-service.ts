@@ -5,6 +5,10 @@ import {
   PlayerGarden,
 } from '../../shared/models/player-garden';
 import { JobType } from '../../shared/enums/job-type';
+import { PlayerQuest } from '../../shared/models/player-quest';
+import { PlayerSkill } from '../../shared/models/player-skill';
+import { PlayerStorage } from '../../shared/models/player-storage';
+import { ItemType } from '../../shared/enums/item-type';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +16,7 @@ import { JobType } from '../../shared/enums/job-type';
 export class PlayerService {
   private _gardenCropExpTable = signal<Record<string, PlayerSkillExperience>>({
     'dc2aa218-c368-46eb-a7a2-ad356d624b6e': {
+      playerSkillExperienceId: 'dc2aa218-c368-46eb-a7a2-ad356d624b6e',
       currentExp: 10,
       nextLevelExp: 20,
       currentLevel: 1,
@@ -19,8 +24,10 @@ export class PlayerService {
     },
   });
 
-  private _playerGardenFields = signal<Record<number, CultivableField>>({
-    4: {
+  private _playerGardenFields = signal<Record<string, CultivableField>>({
+    '035a77e2-8848-4035-b8d6-d8ec71681499': {
+      playerGardenFieldId: '035a77e2-8848-4035-b8d6-d8ec71681499',
+      fieldIndex: 4,
       isPurchased: true,
       isIrrigated: false,
       isFertilized: false,
@@ -45,15 +52,113 @@ export class PlayerService {
     },
   });
 
+  private _playerQuests = signal<Record<string, PlayerQuest>>({
+    '0a7a100c-ed1c-4628-aed1-fc018498e019': {
+      playerQuestId: '0a7a100c-ed1c-4628-aed1-fc018498e019',
+      isCompleted: false,
+      completedQuestDetails: [],
+      questData: {
+        questId: '6a6e354d-c8cb-4ab0-b4da-2f448687ad7f',
+        questName: '8. Tag des Erntemondes',
+        isMainQuest: true,
+        questDescription:
+          'Endlich haben wir den Wald erreicht. Die Dunkelheit war gnädig und hat unsere Spuren verschluckt. Mein Bruder schlief unruhig, das Feuer flackerte schwach und war kaum mehr als ein tröstender Funke in all der Finsternis. Ich kann den Wind durch die alten Bäume hören – als würde er unsere Flucht belauschen. Wir haben nur das Nötigste bei uns. Ein paar Stücke Brot, die alte Decke, und Mut, der langsam schwindet. Doch hier, fern von all dem Lärm und den Suchtrupps, spüre ich zum ersten Mal seit Tagen einen Hauch von Frieden. Wenn der Morgen kommt, werden wir tiefer in den Wald ziehen. Vielleicht finden wir einen Ort, den niemand kennt. Einen Ort, den wir „Zuhause“ nennen können.',
+        questDetails: [
+          {
+            questDetailId: '92035917-6cde-4add-b7dd-6f8e239fb37d',
+            questDetailName: 'Überlebe die Nacht',
+          },
+          {
+            questDetailId: '320929ce-266a-438b-b776-6f6575ccd3bb',
+            questDetailName: 'Finde ein neues Zuhause',
+          },
+        ],
+        questRewards: [{ experience: 120 }],
+      },
+    },
+    '3be76117-7118-46ee-9a60-518bf327f840': {
+      playerQuestId: '3be76117-7118-46ee-9a60-518bf327f840',
+      isCompleted: true,
+      completedQuestDetails: ['7e7b2983-55b2-40be-a2ca-7d10fa39b9ca'],
+      questData: {
+        questId: '35303ed0-d522-4535-bb1d-ce3fe1020031',
+        questName: '7. Tag des Erntemondes',
+        isMainQuest: true,
+        questDescription:
+          'Wir haben die Stadt hinter uns gelassen. Die Straßen lagen still, doch jeder Schritt hallte wie ein Verrat durch die Gassen. Ich wagte kaum zu atmen, als wir an den Wachen vorbeischlichen. Mein Bruder hielt meine Hand fest, so fest, dass sie noch jetzt schmerzt — vielleicht, um mich daran zu erinnern, dass wir noch leben.',
+        questDetails: [
+          {
+            questDetailId: '7e7b2983-55b2-40be-a2ca-7d10fa39b9ca',
+            questDetailName: 'Fliehe aus der Stadt',
+          },
+        ],
+        questRewards: [{ experience: 100, money: 100 }],
+      },
+    },
+  });
+
+  private _playerSkills = signal<Record<string, PlayerSkill>>({
+    'f2543818-ac13-41b5-a82c-773898346807': {
+      playerSkillId: 'f2543818-ac13-41b5-a82c-773898346807',
+      skillName: 'Kräuterkunde',
+      skillLevel: 4,
+      currentSkillExp: 0,
+      skillPerks: [
+        {
+          skillPerkId: 'f3010fee-cc7f-4e6a-bdf5-81caf1de8d87',
+          skillPerkName: 'Kräuterkundiger',
+          skillPerkDescription: 'Du kannst nun Kräute bis Stufe 2 finden.',
+          skillPerkIcon: 'lavenders-6482579_640.jpg',
+        },
+        {
+          skillPerkId: '575b9657-32f1-4515-ba6f-3f3f5cbf4098',
+          skillPerkName: 'Kräuterexperte',
+          skillPerkDescription:
+            'Du kannst nun Kräuter bis Stufe 4 finden und hast die Chance ein weiteres zu sammeln.',
+          skillPerkIcon: 'moroccan-mint-2396530_640.jpg',
+        },
+      ],
+    },
+  });
+
+  private _playerStorages = signal<Record<string, PlayerStorage>>({
+    '1dc7f745-76da-47eb-87b8-d93935efea0f': {
+      playerStorageId: '1dc7f745-76da-47eb-87b8-d93935efea0f',
+      items: [
+        {
+          storageItemId: '142235a1-c9a0-4cc9-9c1a-c1ea9acb59fd',
+          itemCount: 20,
+          itemData: {
+            itemId: '57b219ab-85e0-48aa-b77a-fe45794d7db2',
+            itemName: 'Kupferbarren',
+            itemIcon: 'blacksmith/25.png',
+            itemType: ItemType.Commodities,
+          },
+        },
+      ],
+    },
+  });
+
   getPlayerGarden(): PlayerGarden {
     return {
-      cultivableFields: this._playerGardenFields(),
+      cultivableFields: Object.values(this._playerGardenFields.asReadonly()()),
     };
   }
 
-  getExpForGardenCop(gardenCropId: string): PlayerSkillExperience {
-    if (!gardenCropId) throw 'Garden Crop id must be provided';
+  getPlayerQuests(): PlayerQuest[] {
+    return Object.values(this._playerQuests.asReadonly()());
+  }
 
+  getExpForGardenCop(gardenCropId: string): PlayerSkillExperience | undefined {
+    if (!gardenCropId) throw 'Garden Crop id must be provided';
     return this._gardenCropExpTable()[gardenCropId];
+  }
+
+  getPlayerSkills() {
+    return Object.values(this._playerSkills.asReadonly()());
+  }
+
+  getPlayerStorages() {
+    return Object.values(this._playerStorages.asReadonly()());
   }
 }
