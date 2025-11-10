@@ -9,7 +9,7 @@ import {
 import { sumBy } from '../../shared/helper/linq';
 import { EnergyDisplay } from '../../shared/components/energy-display/energy-display';
 import { PlayerService } from '../../core/services/player-service';
-import { v4 as uuidv4 } from 'uuid';
+import { newGuid } from '../../shared/helper/guid';
 
 @Component({
   selector: 'app-garden',
@@ -23,10 +23,16 @@ export class Garden implements OnInit {
   protected maxCultivableFields = 9;
   protected playerGarden = signal<PlayerGarden | undefined>(undefined);
 
-  maxEnergyCostsHarvesting = computed(() => this.getMaxEnergyCostsHarvesting());
-  maxEnergyCostsReplanting = computed(() => this.getMaxEnergyCostsReplanting());
-  maxEnergyCostsIrrigation = computed(() => this.getMaxEnergyCostsIrrigation());
-  maxEnergyCostsFertilizing = computed(() =>
+  protected maxEnergyCostsHarvesting = computed(() =>
+    this.getMaxEnergyCostsHarvesting()
+  );
+  protected maxEnergyCostsReplanting = computed(() =>
+    this.getMaxEnergyCostsReplanting()
+  );
+  protected maxEnergyCostsIrrigation = computed(() =>
+    this.getMaxEnergyCostsIrrigation()
+  );
+  protected maxEnergyCostsFertilizing = computed(() =>
     this.getMaxEnergyCostsFertilizing()
   );
 
@@ -36,7 +42,7 @@ export class Garden implements OnInit {
 
     for (let i = 0; i < this.maxCultivableFields; i++) {
       cultivableFields[i] = {
-        playerGardenFieldId: uuidv4(),
+        playerGardenFieldId: newGuid(),
         fieldIndex: i,
         timePassed: 0,
         isPurchased: false,

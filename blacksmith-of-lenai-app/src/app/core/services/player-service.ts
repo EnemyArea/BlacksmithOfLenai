@@ -97,29 +97,7 @@ export class PlayerService {
     },
   });
 
-  private _playerSkills = signal<Record<string, PlayerSkill>>({
-    'f2543818-ac13-41b5-a82c-773898346807': {
-      playerSkillId: 'f2543818-ac13-41b5-a82c-773898346807',
-      skillName: 'Kräuterkunde',
-      skillLevel: 4,
-      currentSkillExp: 0,
-      skillPerks: [
-        {
-          skillPerkId: 'f3010fee-cc7f-4e6a-bdf5-81caf1de8d87',
-          skillPerkName: 'Kräuterkundiger',
-          skillPerkDescription: 'Du kannst nun Kräute bis Stufe 2 finden.',
-          skillPerkIcon: 'lavenders-6482579_640.jpg',
-        },
-        {
-          skillPerkId: '575b9657-32f1-4515-ba6f-3f3f5cbf4098',
-          skillPerkName: 'Kräuterexperte',
-          skillPerkDescription:
-            'Du kannst nun Kräuter bis Stufe 4 finden und hast die Chance ein weiteres zu sammeln.',
-          skillPerkIcon: 'moroccan-mint-2396530_640.jpg',
-        },
-      ],
-    },
-  });
+  private _playerSkills = signal<Record<string, PlayerSkill>>({});
 
   private _playerStorages = signal<Record<string, PlayerStorage>>({
     '1dc7f745-76da-47eb-87b8-d93935efea0f': {
@@ -146,7 +124,7 @@ export class PlayerService {
   }
 
   getPlayerQuests(): PlayerQuest[] {
-    return Object.values(this._playerQuests.asReadonly()());
+    return Object.values(this._playerQuests());
   }
 
   getExpForGardenCop(gardenCropId: string): PlayerSkillExperience | undefined {
@@ -155,10 +133,12 @@ export class PlayerService {
   }
 
   getPlayerSkills() {
-    return Object.values(this._playerSkills.asReadonly()());
+    return Object.values(this._playerSkills());
   }
 
   getPlayerStorages() {
-    return Object.values(this._playerStorages.asReadonly()());
+    return Object.values(this._playerStorages());
   }
+
+  loadPlayerSkills() {}
 }

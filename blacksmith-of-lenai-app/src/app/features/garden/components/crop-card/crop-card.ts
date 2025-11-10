@@ -27,7 +27,7 @@ export class CropCard {
   protected readonly JobType = JobType;
   protected isCompleted = signal(false); // Writable Signal
 
-  cultivableField = input.required<CultivableField | undefined>();
+  cultivableField = input.required<CultivableField>();
 
   canHarvested = computed(() => this.isCompleted());
   canReplanted = computed(() => !this.isCompleted());
@@ -40,5 +40,13 @@ export class CropCard {
 
   onCountdownCompleted() {
     this.isCompleted.set(true);
+  }
+
+  irrigateCropHandler() {
+    this.cultivableField().isIrrigated = true;
+  }
+
+  fertilizeCropHandler() {
+    this.cultivableField().isFertilized = true;
   }
 }

@@ -1,4 +1,5 @@
 import { Component, computed, input } from '@angular/core';
+import { PlayerSkillExperience } from '../../models/player-skill-experience';
 
 @Component({
   selector: 'app-skill-rating',
@@ -7,12 +8,9 @@ import { Component, computed, input } from '@angular/core';
   styleUrl: './skill-rating.css',
 })
 export class SkillRating {
-  maxLevel = input.required<number>();
-  currentExp = input.required<number>();
-  nextLevelExp = input.required<number>();
-  currentLevel = input.required<number>();
+  playerSkillExperience = input.required<PlayerSkillExperience>();
 
   levelList = computed(() =>
-    Array.from({ length: this.maxLevel() }, (_, i) => i)
+    Array.from({ length: this.playerSkillExperience().maxLevel }, (_, i) => i)
   );
 }

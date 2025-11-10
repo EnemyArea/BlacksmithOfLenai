@@ -1,6 +1,6 @@
 <div class="rating rating-xl rating-half">
   @for (level of levelList(); track level) {
-    @if (currentLevel() === level) {
+    @if (playerSkillExperience().currentLevel === level) {
       <div
         aria-current="true"
         aria-label="{{ level }}"

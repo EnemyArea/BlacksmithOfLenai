@@ -1,4 +1,5 @@
 import { SkillPerkData } from './skill-perk-data';
+import { PlayerSkillExperience } from './player-skill-experience';
 
 export interface PlayerSkill {
   playerSkillId: string;
@@ -6,4 +7,5 @@ export interface PlayerSkill {
   skillLevel: number;
   currentSkillExp: number;
   skillPerks: SkillPerkData[];
+  playerSkillExperience: PlayerSkillExperience;
 }

@@ -1,10 +1,6 @@
 <div class="flex flex-col gap-4 pb-4">
   <app-page-headline headline="Fähigkeiten" />
   @for (playerSkill of playerSkills(); track playerSkill.playerSkillId) {
-    <app-collapsible-skill
-      [currentSkillExp]="playerSkill.currentSkillExp"
-      [skillLevel]="playerSkill.skillLevel"
-      [skillPerkList]="playerSkill.skillPerks"
-      [skillName]="playerSkill.skillName" />
+    <app-collapsible-skill [playerSkill]="playerSkill" />
   }
 </div>

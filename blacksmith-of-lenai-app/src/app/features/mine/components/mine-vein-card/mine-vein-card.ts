@@ -3,6 +3,8 @@ import { ActionCosts } from '../../../../shared/components/action-costs/action-c
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
 import { JobType } from '../../../../shared/enums/job-type';
 import { PageCard } from '../../../../shared/components/page-card/page-card';
+import { PlayerSkillExperience } from '../../../../shared/models/player-skill-experience';
+import { newGuid } from '../../../../shared/helper/guid';
 
 @Component({
   selector: 'app-mine-vein-card',
@@ -15,6 +17,14 @@ import { PageCard } from '../../../../shared/components/page-card/page-card';
 })
 export class MineVeinCard {
   protected readonly JobType = JobType;
-  isRevealed = input.required<boolean>();
-  isOreVein = input.required<boolean>();
+  protected isRevealed = input.required<boolean>();
+  protected isOreVein = input.required<boolean>();
+
+  protected playerSkillExperience: PlayerSkillExperience = {
+    currentExp: 0,
+    currentLevel: 1,
+    nextLevelExp: 1,
+    maxLevel: 10,
+    playerSkillExperienceId: newGuid(),
+  };
 }

@@ -2,11 +2,11 @@
   class="bg-base-100 p-4 pr-6 rounded-box m-1 text-left flex gap-3 items-center">
   <div class="avatar">
     <div class="w-12 rounded-full">
-      <img alt="icon" src="{{ perkIcon() }}" />
+      <img alt="icon" src="{{ skillPerkData().skillPerkIcon }}" />
     </div>
   </div>
   <div>
-    <h3 class="text-sm font-bold">{{ perkName() }}</h3>
-    <p>{{ perkDescription() }}</p>
+    <h3 class="text-sm font-bold">{{ skillPerkData().skillPerkName }}</h3>
+    <p>{{ skillPerkData().skillPerkDescription }}</p>
   </div>
 </div>

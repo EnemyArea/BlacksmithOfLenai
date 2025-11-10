@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
 
 @Component({
   selector: 'app-skill-perk',
@@ -7,7 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './skill-perk.css',
 })
 export class SkillPerk {
-  perkIcon = input.required<string>();
-  perkName = input.required<string>();
-  perkDescription = input.required<string>();
+  skillPerkData = input.required<SkillPerkData>();
 }
