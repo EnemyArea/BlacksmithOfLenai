@@ -1,8 +1,7 @@
 export enum ItemType {
-  Unknown,
-  Commodities,
-  Weapons,
-  Armors,
-  Accessories,
-  Tools,
+  Commodities = 'Commodities',
+  Weapons = 'Weapons',
+  Armors = 'Armors',
+  Accessories = 'Accessories',
+  Tools = 'Tools',
 }

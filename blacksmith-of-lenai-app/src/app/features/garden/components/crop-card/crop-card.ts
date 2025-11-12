@@ -4,10 +4,10 @@ import { CropStatusBar } from '../crop-status-bar/crop-status-bar';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
 import { JobType } from '../../../../shared/enums/job-type';
 import { PageCard } from '../../../../shared/components/page-card/page-card';
-import { CultivableField } from '../../../../shared/models/player-garden';
 import { MoneyPipe } from '../../../../shared/pipes/money-pipe';
 import { Countdown } from '../../../../shared/components/countdown/countdown';
 import { EnergyDisplay } from '../../../../shared/components/energy-display/energy-display';
+import { GardenField } from '../../../../shared/models/player-garden';
 
 @Component({
   selector: 'app-crop-card',
@@ -27,15 +27,15 @@ export class CropCard {
   protected readonly JobType = JobType;
   protected isCompleted = signal(false); // Writable Signal
 
-  cultivableField = input.required<CultivableField>();
+  gardenField = input.required<GardenField>();
 
-  canHarvested = computed(() => this.isCompleted());
-  canReplanted = computed(() => !this.isCompleted());
-  canIrrigated = computed(
-    () => !this.isCompleted() && this.cultivableField()?.isIrrigated === false
+  protected canHarvested = computed(() => this.isCompleted());
+  protected canReplanted = computed(() => !this.isCompleted());
+  protected canIrrigated = computed(
+    () => !this.isCompleted() && this.gardenField()?.isIrrigated === false
   );
-  canFertilized = computed(
-    () => !this.isCompleted() && this.cultivableField()?.isFertilized === false
+  protected canFertilized = computed(
+    () => !this.isCompleted() && this.gardenField()?.isFertilized === false
   );
 
   onCountdownCompleted() {
@@ -43,10 +43,10 @@ export class CropCard {
   }
 
   irrigateCropHandler() {
-    this.cultivableField().isIrrigated = true;
+    this.gardenField().isIrrigated = true;
   }
 
   fertilizeCropHandler() {
-    this.cultivableField().isFertilized = true;
+    this.gardenField().isFertilized = true;
   }
 }

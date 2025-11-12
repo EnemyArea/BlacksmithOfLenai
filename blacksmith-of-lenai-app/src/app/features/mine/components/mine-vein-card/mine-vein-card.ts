@@ -17,8 +17,8 @@ import { newGuid } from '../../../../shared/helper/guid';
 })
 export class MineVeinCard {
   protected readonly JobType = JobType;
-  protected isRevealed = input.required<boolean>();
-  protected isOreVein = input.required<boolean>();
+  isRevealed = input.required<boolean>();
+  isOreVein = input.required<boolean>();
 
   protected playerSkillExperience: PlayerSkillExperience = {
     currentExp: 0,

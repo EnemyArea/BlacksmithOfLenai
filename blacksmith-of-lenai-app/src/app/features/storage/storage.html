@@ -8,10 +8,12 @@
           <app-storage-toolbar />
         </div>
         <div class="gap-2 w-full md:grid md:grid-cols-6">
-          @for (item of playerStorages()[0].items; track item.storageItemId) {
-            <app-item-renderer
-              [itemData]="item.itemData"
-              [itemCount]="item.itemCount" />
+          @if (playerStorages() && playerStorages().length > 0) {
+            @for (item of playerStorages()[0].items; track item.storageItemId) {
+              <app-item-renderer
+                [itemData]="item.itemData"
+                [itemCount]="item.itemCount" />
+            }
           }
         </div>
       </app-page-card>

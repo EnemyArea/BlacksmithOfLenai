@@ -12,9 +12,9 @@ import { PlayerService } from '../../core/services/player-service';
 })
 export class Skills implements OnInit {
   private _playerService = inject(PlayerService);
-  protected playerSkills = computed(() => {
-    return this._playerService.getPlayerSkills();
-  });
+  protected playerSkills = computed(() =>
+    this._playerService.getPlayerSkills()
+  );
 
   ngOnInit() {
     this._playerService.loadPlayerSkills();

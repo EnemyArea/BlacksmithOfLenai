@@ -1,29 +1,29 @@
 <app-page-card>
-  @if (!cultivableField().isPurchased) {
+  @if (!gardenField().isPurchased) {
     <h2 class="card-title">Kaufen</h2>
-    <p>🪙 {{ cultivableField().price | money }}</p>
+    <p>🪙 {{ gardenField().price | money }}</p>
     <div class="flex flex-row flex-wrap gap-1 items-stretch">
       <button class="btn">💰</button>
     </div>
   } @else {
-    @if (cultivableField().gardenCrop; as gardenCrop) {
+    @if (gardenField().gardenCrop; as gardenCrop) {
       <h2 class="card-title">
         {{ gardenCrop.gardenCropName }}
       </h2>
 
-      @if (cultivableField().playerSkillExperience; as playerSkillExperience) {
+      @if (gardenField().playerSkillExperience; as playerSkillExperience) {
         <app-skill-rating [playerSkillExperience]="playerSkillExperience" />
       }
 
       @if (!isCompleted()) {
         <app-crop-status-bar
-          [isIrrigated]="cultivableField().isIrrigated"
-          [isFertilized]="cultivableField().isFertilized" />
+          [isIrrigated]="gardenField().isIrrigated"
+          [isFertilized]="gardenField().isFertilized" />
       }
 
       <app-countdown
         (completedOutput)="onCountdownCompleted()"
-        [initialTime]="cultivableField().timePassed" />
+        [initialTime]="gardenField().timePassed" />
 
       <app-action-costs
         [experience]="gardenCrop.experience"
