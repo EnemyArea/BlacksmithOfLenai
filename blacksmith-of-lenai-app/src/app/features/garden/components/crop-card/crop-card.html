@@ -23,7 +23,7 @@
 
       <app-countdown
         (completedOutput)="onCountdownCompleted()"
-        [initialTime]="gardenField().timePassed" />
+        [initialTime]="gardenField().timePassed ?? 0" />
 
       <app-action-costs
         [experience]="gardenCrop.experience"
