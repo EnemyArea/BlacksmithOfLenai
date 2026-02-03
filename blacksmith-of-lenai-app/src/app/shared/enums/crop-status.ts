@@ -1,5 +1,4 @@
 export enum CropStatus {
-  Unknown,
-  Water,
-  Fertilizer,
+  Water = 'Water',
+  Fertilizer = 'Fertilizer',
 }

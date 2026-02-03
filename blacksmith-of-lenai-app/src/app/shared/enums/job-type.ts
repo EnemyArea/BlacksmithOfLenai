@@ -1,7 +1,6 @@
 export enum JobType {
-  Unknown,
-  HerbCollector,
-  Lumberjack,
-  BlackSmith,
-  Miner,
+  HerbCollector = 'HerbCollector',
+  Lumberjack = 'Lumberjack',
+  BlackSmith = 'BlackSmith',
+  Miner = 'Miner',
 }
