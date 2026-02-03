@@ -7,5 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './page-headline.css',
 })
 export class PageHeadline {
-  headline = input.required<string>();
+  protected headline = input.required<string>();
 }

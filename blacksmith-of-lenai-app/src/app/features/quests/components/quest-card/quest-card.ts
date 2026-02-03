@@ -11,6 +11,6 @@ import { QuestCardRewards } from '../quest-card-rewards/quest-card-rewards';
   styleUrl: './quest-card.css',
 })
 export class QuestCard {
-  playerQuest = input.required<PlayerQuest | undefined>();
-  isOpen = input.required<boolean>();
+  protected playerQuest = input.required<PlayerQuest | undefined>();
+  protected isOpen = input.required<boolean>();
 }

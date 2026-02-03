@@ -12,15 +12,15 @@ import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-
   styleUrl: './environment.css',
 })
 export class Environment {
-  @ViewChild('shieldDialog') shieldDialog!: ActionCardDialog;
-  @ViewChild('deeperDialog') deeperDialog!: ActionCardDialog;
+  @ViewChild('shieldDialog') protected shieldDialog!: ActionCardDialog;
+  @ViewChild('deeperDialog') protected deeperDialog!: ActionCardDialog;
   protected readonly JobType = JobType;
 
-  openShieldDialog = () => {
+  protected openShieldDialog(): void {
     this.shieldDialog.showDialog();
-  };
+  }
 
-  openDeeperDialog = () => {
+  protected openDeeperDialog(): void {
     this.deeperDialog.showDialog();
-  };
+  }
 }

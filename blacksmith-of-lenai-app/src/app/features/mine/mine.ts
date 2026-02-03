@@ -11,6 +11,6 @@ import { MineVeinCard } from './components/mine-vein-card/mine-vein-card';
   styleUrl: './mine.css',
 })
 export class Mine {
-  fields: number[] = [...Array(9).keys()];
+  protected fields: number[] = [...Array(9).keys()];
   protected readonly JobType = JobType;
 }

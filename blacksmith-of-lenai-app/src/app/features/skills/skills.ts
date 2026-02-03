@@ -16,7 +16,7 @@ export class Skills implements OnInit {
     return this._playerService.getPlayerSkills();
   });
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this._playerService.loadPlayerSkills();
   }
 }

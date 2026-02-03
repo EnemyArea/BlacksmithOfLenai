@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './quest-tabs.html',
   styleUrl: './quest-tabs.css',
 })
-export class QuestTabs {
-
-}
+export class QuestTabs {}

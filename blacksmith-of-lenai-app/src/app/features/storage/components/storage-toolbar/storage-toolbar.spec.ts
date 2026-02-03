@@ -8,9 +8,8 @@ describe('StorageToolbar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StorageToolbar]
-    })
-    .compileComponents();
+      imports: [StorageToolbar],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StorageToolbar);
     component = fixture.componentInstance;

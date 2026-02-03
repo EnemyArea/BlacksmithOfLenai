@@ -9,13 +9,13 @@ import { JobType } from '../../enums/job-type';
   styleUrl: './action-costs.css',
 })
 export class ActionCosts {
-  energyCosts = input<number>();
-  duration = input<number>();
-  experience = input<number>();
-  jobType = input<JobType>();
-  jobExperience = input<number>();
+  protected energyCosts = input<number>();
+  protected duration = input<number>();
+  protected experience = input<number>();
+  protected jobType = input<JobType>();
+  protected jobExperience = input<number>();
 
-  getJobTypeName = (): string => {
+  protected getJobTypeName(): string {
     switch (this.jobType()) {
       case JobType.HerbCollector:
         return 'Kräuterkunde';
@@ -27,5 +27,5 @@ export class ActionCosts {
         return 'Bergbau';
     }
     return '';
-  };
+  }
 }

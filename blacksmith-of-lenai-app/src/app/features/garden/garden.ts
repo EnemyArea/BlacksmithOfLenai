@@ -36,7 +36,7 @@ export class Garden implements OnInit {
     this.getMaxEnergyCostsFertilizing()
   );
 
-  ngOnInit() {
+  public ngOnInit(): void {
     const playerGardenData = this.playerService.getPlayerGarden();
     const cultivableFields: CultivableField[] = [];
 

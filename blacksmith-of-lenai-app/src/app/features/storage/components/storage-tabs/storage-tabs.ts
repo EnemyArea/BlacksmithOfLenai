@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './storage-tabs.html',
   styleUrl: './storage-tabs.css',
 })
-export class StorageTabs {
-
-}
+export class StorageTabs {}

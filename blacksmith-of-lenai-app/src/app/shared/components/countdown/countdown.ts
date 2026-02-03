@@ -20,18 +20,17 @@ export class Countdown implements OnInit, OnDestroy {
   protected _completed = signal(false);
 
   @Input()
-  set initialTime(value: number) {
+  public set initialTime(value: number) {
     this._timePassed.set(value);
   }
 
-  completedOutput = output<void>();
+  protected completedOutput = output<void>();
+  protected completedLabel = input('Fertig');
+  protected seconds = signal(0);
+  protected minutes = signal(0);
+  protected hours = signal(0);
 
-  completedLabel = input('Fertig');
-  seconds = signal(0);
-  minutes = signal(0);
-  hours = signal(0);
-
-  ngOnInit() {
+  public ngOnInit(): void {
     this.updateTimeSignals();
     this.interval = window.setInterval(() => {
       this._timePassed.set(this._timePassed() - 1);
@@ -45,13 +44,13 @@ export class Countdown implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  private updateTimeSignals() {
+  private updateTimeSignals(): void {
     this.seconds.set(this._timePassed() % 60);
     this.minutes.set(Math.floor((this._timePassed() % 3600) / 60));
     this.hours.set(Math.floor(this._timePassed() / 3600));
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     window.clearInterval(this.interval);
   }
 }

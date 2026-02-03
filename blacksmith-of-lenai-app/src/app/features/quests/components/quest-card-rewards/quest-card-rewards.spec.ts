@@ -8,9 +8,8 @@ describe('QuestCardRewards', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuestCardRewards]
-    })
-    .compileComponents();
+      imports: [QuestCardRewards],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(QuestCardRewards);
     component = fixture.componentInstance;

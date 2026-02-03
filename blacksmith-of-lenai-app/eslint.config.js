@@ -22,6 +22,8 @@ module.exports = tseslint.config(
     processor: angular.processInlineTemplates,
     rules: {
       'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -32,6 +34,7 @@ module.exports = tseslint.config(
           argsIgnorePattern: '^_',
         },
       ],
+
       '@angular-eslint/directive-selector': [
         'error',
         {
@@ -46,6 +49,32 @@ module.exports = tseslint.config(
           type: 'element',
           prefix: 'app',
           style: 'kebab-case',
+        },
+      ],
+
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        {
+          accessibility: 'explicit',
+          overrides: {
+            constructors: 'no-public',
+          },
+        },
+      ],
+
+      '@typescript-eslint/explicit-function-return-type': [
+        'error',
+        {
+          allowExpressions: true,
+          allowHigherOrderFunctions: true,
+        },
+      ],
+
+      '@typescript-eslint/typedef': [
+        'error',
+        {
+          variableDeclaration: false,
+          parameter: false,
         },
       ],
     },

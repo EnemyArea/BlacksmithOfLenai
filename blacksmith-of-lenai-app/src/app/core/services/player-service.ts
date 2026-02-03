@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { PlayerSkillExperience } from '../../shared/models/player-skill-experience';
 import {
   CultivableField,
@@ -9,11 +9,14 @@ import { PlayerQuest } from '../../shared/models/player-quest';
 import { PlayerSkill } from '../../shared/models/player-skill';
 import { PlayerStorage } from '../../shared/models/player-storage';
 import { ItemType } from '../../shared/enums/item-type';
+import { GameClient } from './game-client';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayerService {
+  private gameClient = inject(GameClient);
+
   private _gardenCropExpTable = signal<Record<string, PlayerSkillExperience>>({
     'dc2aa218-c368-46eb-a7a2-ad356d624b6e': {
       playerSkillExperienceId: 'dc2aa218-c368-46eb-a7a2-ad356d624b6e',
@@ -117,28 +120,32 @@ export class PlayerService {
     },
   });
 
-  getPlayerGarden(): PlayerGarden {
+  public getPlayerGarden(): PlayerGarden {
     return {
       cultivableFields: Object.values(this._playerGardenFields.asReadonly()()),
     };
   }
 
-  getPlayerQuests(): PlayerQuest[] {
+  public getPlayerQuests(): PlayerQuest[] {
     return Object.values(this._playerQuests());
   }
 
-  getExpForGardenCop(gardenCropId: string): PlayerSkillExperience | undefined {
+  public getExpForGardenCop(
+    gardenCropId: string
+  ): PlayerSkillExperience | undefined {
     if (!gardenCropId) throw 'Garden Crop id must be provided';
     return this._gardenCropExpTable()[gardenCropId];
   }
 
-  getPlayerSkills() {
+  public getPlayerSkills(): PlayerSkill[] {
     return Object.values(this._playerSkills());
   }
 
-  getPlayerStorages() {
+  public getPlayerStorages(): PlayerStorage[] {
     return Object.values(this._playerStorages());
   }
 
-  loadPlayerSkills() {}
+  public loadPlayerSkills(): void {
+    return;
+  }
 }

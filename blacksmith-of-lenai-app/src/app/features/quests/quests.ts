@@ -15,7 +15,7 @@ export class Quests implements OnInit {
   private _playerService = inject(PlayerService);
   protected playerQuests = signal<PlayerQuest[]>([]);
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.playerQuests.set(this._playerService.getPlayerQuests());
   }
 }

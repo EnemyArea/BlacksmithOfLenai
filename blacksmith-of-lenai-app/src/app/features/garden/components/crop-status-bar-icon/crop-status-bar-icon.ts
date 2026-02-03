@@ -8,10 +8,10 @@ import { CropStatus } from '../../../../shared/enums/crop-status';
   styleUrl: './crop-status-bar-icon.css',
 })
 export class CropStatusBarIcon {
-  cropStatus = input.required<CropStatus>();
-  isNeeded = input.required<boolean>();
+  protected cropStatus = input.required<CropStatus>();
+  protected isNeeded = input.required<boolean>();
 
-  getCropStatusIcon = (): string => {
+  protected getCropStatusIcon = (): string => {
     switch (this.cropStatus()) {
       case CropStatus.Water:
         return '💧';

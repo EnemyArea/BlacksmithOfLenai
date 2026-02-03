@@ -10,12 +10,12 @@ import { Component, ElementRef, input, ViewChild } from '@angular/core';
   },
 })
 export class ActionCardDialog {
-  figure = input<string>();
-  dialogText = input.required<string>();
-  secondaryBtnLabel = input<string>();
-  primaryBtnLabel = input<string>();
+  protected figure = input<string>();
+  protected dialogText = input.required<string>();
+  protected secondaryBtnLabel = input<string>();
+  protected primaryBtnLabel = input<string>();
 
-  @ViewChild('baseDialog') baseDialog!: ElementRef<HTMLDialogElement>;
+  @ViewChild('baseDialog') protected baseDialog!: ElementRef<HTMLDialogElement>;
 
   public showDialog(): void {
     this.baseDialog.nativeElement.showModal();

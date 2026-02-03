@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true,
 })
 export class DurationPipe implements PipeTransform {
-  transform(
+  public transform(
     seconds: number | undefined,
     format: 'short' | 'long' = 'short'
   ): string {

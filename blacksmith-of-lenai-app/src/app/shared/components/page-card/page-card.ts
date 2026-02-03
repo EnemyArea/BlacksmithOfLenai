@@ -8,5 +8,5 @@ import { NgTemplateOutlet } from '@angular/common';
   styleUrl: './page-card.css',
 })
 export class PageCard {
-  isCollapsible = input<boolean>();
+  protected isCollapsible = input<boolean>();
 }

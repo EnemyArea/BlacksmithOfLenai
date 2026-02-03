@@ -11,6 +11,6 @@ import { CropStatusBarIcon } from '../crop-status-bar-icon/crop-status-bar-icon'
 export class CropStatusBar {
   protected readonly CropStatus = CropStatus;
 
-  isIrrigated = input.required<boolean>();
-  isFertilized = input.required<boolean>();
+  protected isIrrigated = input.required<boolean>();
+  protected isFertilized = input.required<boolean>();
 }

@@ -8,6 +8,6 @@ import { ItemData } from '../../models/item-data';
   styleUrl: './item-renderer.css',
 })
 export class ItemRenderer {
-  itemData = input.required<ItemData | undefined>();
-  itemCount = input.required<number>();
+  protected itemData = input.required<ItemData | undefined>();
+  protected itemCount = input.required<number>();
 }

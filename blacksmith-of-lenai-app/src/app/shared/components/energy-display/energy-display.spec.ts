@@ -8,9 +8,8 @@ describe('EnergyDisplay', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EnergyDisplay]
-    })
-    .compileComponents();
+      imports: [EnergyDisplay],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EnergyDisplay);
     component = fixture.componentInstance;

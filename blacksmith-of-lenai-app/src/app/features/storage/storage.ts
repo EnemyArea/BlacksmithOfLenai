@@ -17,7 +17,7 @@ export class Storage implements OnInit {
   private _playerService = inject(PlayerService);
   protected playerStorages = signal<PlayerStorage[]>([]);
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.playerStorages.set(this._playerService.getPlayerStorages());
   }
 }
