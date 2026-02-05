@@ -6,8 +6,8 @@ import { DefaultService } from '../../../api-generated';
 import { mapPlayerGardenFields } from './garden.mapper';
 
 export const loadPlayerGarden = createEffect(
-  (actions$ = inject(Actions), gameService = inject(DefaultService)) => {
-    return actions$.pipe(
+  (actions = inject(Actions), gameService = inject(DefaultService)) => {
+    return actions.pipe(
       ofType(PlayerGardenActions.loadPlayerGarden),
       switchMap(() =>
         gameService.playerGardenGet().pipe(
