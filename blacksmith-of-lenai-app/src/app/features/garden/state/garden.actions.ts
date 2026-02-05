@@ -3,7 +3,7 @@ import { PlayerGardenField } from './garden.models';
 import { HttpErrorResponse } from '@angular/common/http';
 
 export const PlayerGardenActions = createActionGroup({
-  source: 'Garden',
+  source: 'playerGarden',
   events: {
     LoadPlayerGarden: emptyProps(),
     LoadPlayerGardenSuccess: props<{
