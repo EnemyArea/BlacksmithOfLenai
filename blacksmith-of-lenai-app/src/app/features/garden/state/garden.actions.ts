@@ -12,5 +12,9 @@ export const PlayerGardenActions = createActionGroup({
     loadPlayerGardenFailure: props<{
       error: HttpErrorResponse;
     }>(),
+
+    IrrigateField: props<{ playerGardenFieldId: string }>(),
+    IrrigateFieldSuccess: props<{ field: PlayerGardenField }>(),
+    IrrigateFieldFailure: props<{ error: HttpErrorResponse }>(),
   },
 });

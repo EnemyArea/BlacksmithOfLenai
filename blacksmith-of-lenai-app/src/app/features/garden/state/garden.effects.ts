@@ -16,14 +16,9 @@ export const loadPlayerGarden = createEffect(
               playerGardenFields: mapPlayerGardenFields(fields),
             })
           ),
-          catchError(error => {
-            console.error('Garden-API-Error:', error);
-            return of(
-              PlayerGardenActions.loadPlayerGardenFailure({
-                error: error.message || 'Unknown Garden-API-Error',
-              })
-            );
-          })
+          catchError(error =>
+            of(PlayerGardenActions.loadPlayerGardenFailure({ error }))
+          )
         )
       )
     );
