@@ -8,5 +8,5 @@ import { PlayerQuest } from '../../../../shared/models/player-quest';
   styleUrl: './quest-card-details.css',
 })
 export class QuestCardDetails {
-  protected playerQuest = input.required<PlayerQuest | undefined>();
+  public readonly playerQuest = input.required<PlayerQuest | undefined>();
 }

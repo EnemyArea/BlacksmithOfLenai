@@ -7,5 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './energy-display.css',
 })
 export class EnergyDisplay {
-  protected energy = input.required<number>();
+  public readonly energy = input.required<number>();
 }

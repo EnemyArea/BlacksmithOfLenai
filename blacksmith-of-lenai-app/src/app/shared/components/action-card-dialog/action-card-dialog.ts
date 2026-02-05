@@ -10,10 +10,10 @@ import { Component, ElementRef, input, ViewChild } from '@angular/core';
   },
 })
 export class ActionCardDialog {
-  protected figure = input<string>();
-  protected dialogText = input.required<string>();
-  protected secondaryBtnLabel = input<string>();
-  protected primaryBtnLabel = input<string>();
+  public readonly figure = input<string>();
+  public readonly dialogText = input.required<string>();
+  public readonly secondaryBtnLabel = input<string>();
+  public readonly primaryBtnLabel = input<string>();
 
   @ViewChild('baseDialog') protected baseDialog!: ElementRef<HTMLDialogElement>;
 

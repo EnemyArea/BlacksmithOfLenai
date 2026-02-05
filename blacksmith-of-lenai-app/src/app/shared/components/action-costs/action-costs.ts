@@ -9,11 +9,11 @@ import { JobType } from '../../enums/job-type';
   styleUrl: './action-costs.css',
 })
 export class ActionCosts {
-  protected energyCosts = input<number>();
-  protected duration = input<number>();
-  protected experience = input<number>();
-  protected jobType = input<JobType>();
-  protected jobExperience = input<number>();
+  public readonly energyCosts = input<number>();
+  public readonly duration = input<number>();
+  public readonly experience = input<number>();
+  public readonly jobType = input<JobType>();
+  public readonly jobExperience = input<number>();
 
   protected getJobTypeName(): string {
     switch (this.jobType()) {

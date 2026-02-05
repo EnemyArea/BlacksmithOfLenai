@@ -10,5 +10,5 @@ import { PlayerSkill } from '../../../../shared/models/player-skill';
   styleUrl: './collapsible-skill.css',
 })
 export class CollapsibleSkill {
-  protected playerSkill = input.required<PlayerSkill>();
+  public readonly playerSkill = input.required<PlayerSkill>();
 }

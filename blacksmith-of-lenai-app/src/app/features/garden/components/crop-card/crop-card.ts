@@ -25,16 +25,16 @@ import { GardenField } from '../../../../shared/models/player-garden';
 })
 export class CropCard {
   protected readonly JobType = JobType;
-  protected isCompleted = signal(false); // Writable Signal
+  protected readonly isCompleted = signal(false); // Writable Signal
 
-  protected gardenField = input.required<GardenField>();
+  public readonly gardenField = input.required<GardenField>();
 
-  protected canHarvested = computed(() => this.isCompleted());
-  protected canReplanted = computed(() => !this.isCompleted());
-  protected canIrrigated = computed(
+  protected readonly canHarvested = computed(() => this.isCompleted());
+  protected readonly canReplanted = computed(() => !this.isCompleted());
+  protected readonly canIrrigated = computed(
     () => !this.isCompleted() && this.gardenField()?.isIrrigated === false
   );
-  protected canFertilized = computed(
+  protected readonly canFertilized = computed(
     () => !this.isCompleted() && this.gardenField()?.isFertilized === false
   );
 

@@ -8,5 +8,5 @@ import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
   styleUrl: './skill-perk.css',
 })
 export class SkillPerk {
-  protected skillPerkData = input.required<SkillPerkData>();
+  public readonly skillPerkData = input.required<SkillPerkData>();
 }

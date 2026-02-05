@@ -8,8 +8,8 @@ import { CropStatus } from '../../../../shared/enums/crop-status';
   styleUrl: './crop-status-bar-icon.css',
 })
 export class CropStatusBarIcon {
-  protected cropStatus = input.required<CropStatus>();
-  protected isNeeded = input.required<boolean>();
+  public readonly cropStatus = input.required<CropStatus>();
+  public readonly isNeeded = input.required<boolean>();
 
   protected getCropStatusIcon = (): string => {
     switch (this.cropStatus()) {

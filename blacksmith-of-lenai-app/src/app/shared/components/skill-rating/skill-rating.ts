@@ -8,7 +8,8 @@ import { PlayerSkillExperience } from '../../models/player-skill-experience';
   styleUrl: './skill-rating.css',
 })
 export class SkillRating {
-  protected playerSkillExperience = input.required<PlayerSkillExperience>();
+  public readonly playerSkillExperience =
+    input.required<PlayerSkillExperience>();
 
   protected levelList = computed(() =>
     Array.from({ length: this.playerSkillExperience().maxLevel }, (_, i) => i)

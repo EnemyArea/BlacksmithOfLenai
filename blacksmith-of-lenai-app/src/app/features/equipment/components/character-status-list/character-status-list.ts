@@ -8,5 +8,5 @@ import { CharacterStatusData } from '../../../../shared/models/character-status-
   styleUrl: './character-status-list.css',
 })
 export class CharacterStatusList {
-  protected characterStatusList = input.required<CharacterStatusData[]>();
+  public readonly characterStatusList = input.required<CharacterStatusData[]>();
 }

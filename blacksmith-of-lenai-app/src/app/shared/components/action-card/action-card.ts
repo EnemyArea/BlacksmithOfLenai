@@ -13,13 +13,13 @@ import { PageCard } from '../page-card/page-card';
   },
 })
 export class ActionCard {
-  protected cardTitle = input.required<string>();
-  protected cardDescription = input.required<string>();
-  protected actionBtnLabel = input.required<string>();
-  protected energyCosts = input<number>();
-  protected duration = input<number>();
-  protected experience = input<number>();
-  protected jobType = input<JobType>();
+  public readonly cardTitle = input.required<string>();
+  public readonly cardDescription = input.required<string>();
+  public readonly actionBtnLabel = input.required<string>();
+  public readonly energyCosts = input<number>();
+  public readonly duration = input<number>();
+  public readonly experience = input<number>();
+  public readonly jobType = input<JobType>();
 
   protected handleActionBtnClick(): void {
     // if (this.onActionBtnClick) {

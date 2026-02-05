@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './collapsible-teaser.css',
 })
 export class CollapsibleTeaser {
-  protected teaserTitle = input.required<string>();
-  protected teaserText = input.required<string>();
-  protected teaserFigure = input.required<string>();
+  public readonly teaserTitle = input.required<string>();
+  public readonly teaserText = input.required<string>();
+  public readonly teaserFigure = input.required<string>();
 }
