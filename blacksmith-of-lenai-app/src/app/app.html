@@ -18,7 +18,11 @@
       </div>
       <div class="drawer-content p-4 container">
         <router-outlet />
-        <div class="p-4">&nbsp;</div>
+        <div class="p-4">
+          books: {{books().length}}
+          <button class="btn btn-neutral" (click)="onAdd('fdsfsf')">add</button>
+          &nbsp;
+        </div>
       </div>
     </div>
     <footer
