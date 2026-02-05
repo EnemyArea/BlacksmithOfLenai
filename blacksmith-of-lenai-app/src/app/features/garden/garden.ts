@@ -1,18 +1,10 @@
-import {
-  Component,
-  computed,
-  effect,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { JobType } from '../../shared/enums/job-type';
 import { CropCard } from './components/crop-card/crop-card';
-import { sumBy } from '../../shared/helper/linq';
 import { EnergyDisplay } from '../../shared/components/energy-display/energy-display';
-import { PlayerService } from '../../core/services/player-service';
-import { GardenField } from '../../shared/models/player-garden';
+import { GardenField } from './state/garden.models';
+import { PlayerGardenFacade } from './state/garden.facade';
 
 @Component({
   selector: 'app-garden',
@@ -21,34 +13,30 @@ import { GardenField } from '../../shared/models/player-garden';
   styleUrl: './garden.css',
 })
 export class Garden implements OnInit {
-  private _playerService = inject(PlayerService);
+  private playerGardenService = inject(PlayerGardenFacade);
+
   protected readonly JobType = JobType;
   protected maxCultivableFields = 9;
-  protected playerGardenFields = computed(() =>
-    this._playerService.getPlayerGardenFields()
-  );
-  protected gardenFields = signal<GardenField[]>([]);
 
-  protected maxEnergyCostsHarvesting = computed(() =>
-    this.getMaxEnergyCostsHarvesting()
-  );
-  protected maxEnergyCostsReplanting = computed(() =>
-    this.getMaxEnergyCostsReplanting()
-  );
-  protected maxEnergyCostsIrrigation = computed(() =>
-    this.getMaxEnergyCostsIrrigation()
-  );
-  protected maxEnergyCostsFertilizing = computed(() =>
-    this.getMaxEnergyCostsFertilizing()
-  );
+  protected playerGardenFields = this.playerGardenService.playerGardenFields;
+
+  protected maxEnergyCostsHarvesting =
+    this.playerGardenService.maxEnergyCostsHarvest;
+  protected maxEnergyCostsReplanting =
+    this.playerGardenService.maxEnergyCostsReplant;
+  protected maxEnergyCostsIrrigation =
+    this.playerGardenService.maxEnergyCostsIrrigation;
+  protected maxEnergyCostsFertilizing =
+    this.playerGardenService.maxEnergyCostsFertilize;
+
+  protected gardenFields = signal<GardenField[]>([]);
 
   constructor() {
     effect(() => {
       const initGardenFields: GardenField[] = [];
 
-      const playerGardenFields = this.playerGardenFields();
       for (let i = 0; i < this.maxCultivableFields; i++) {
-        const playerGardenField = playerGardenFields.find(
+        const playerGardenField = this.playerGardenFields().find(
           x => x.fieldIndex === i
         );
         if (playerGardenField) {
@@ -79,38 +67,6 @@ export class Garden implements OnInit {
   }
 
   public ngOnInit(): void {
-    this._playerService.loadPlayerGardenFields();
-  }
-
-  private getMaxEnergyCostsHarvesting(): number {
-    if (!this.playerGardenFields()) return 0;
-    return sumBy(
-      this.playerGardenFields(),
-      x => x.gardenCrop?.energyCostsHarvest ?? 0
-    );
-  }
-
-  private getMaxEnergyCostsReplanting(): number {
-    if (!this.playerGardenFields()) return 0;
-    return sumBy(
-      this.playerGardenFields(),
-      x => x.gardenCrop?.energyCostsReplant ?? 0
-    );
-  }
-
-  private getMaxEnergyCostsIrrigation(): number {
-    if (!this.playerGardenFields()) return 0;
-    return sumBy(
-      this.playerGardenFields(),
-      x => x.gardenCrop?.energyCostsIrrigation ?? 0
-    );
-  }
-
-  private getMaxEnergyCostsFertilizing(): number {
-    if (!this.playerGardenFields()) return 0;
-    return sumBy(
-      this.playerGardenFields(),
-      x => x.gardenCrop?.energyCostsFertilize ?? 0
-    );
+    this.playerGardenService.loadPlayerGarden();
   }
 }

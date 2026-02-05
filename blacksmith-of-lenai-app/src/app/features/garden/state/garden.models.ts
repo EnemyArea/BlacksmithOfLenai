@@ -1,5 +1,5 @@
-import { JobType } from '../enums/job-type';
-import { PlayerSkillExperience } from './player-skill-experience';
+import { PlayerSkillExperience } from '../../../shared/models/player-skill-experience';
+import { JobType } from '../../../shared/enums/job-type';
 
 export interface PlayerGardenField {
   playerGardenFieldId: string;

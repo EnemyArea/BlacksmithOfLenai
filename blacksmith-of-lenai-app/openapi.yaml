@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: Garden Game API
+  version: 1.0.0
+
+paths:
+  /player-skills:
+    get:
+      responses:
+        '200':
+          description: Erfolg
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/PlayerSkill' }
+  /player-garden:
+    get:
+      responses:
+        '200':
+          description: Erfolg
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/PlayerGardenField' }
+
+components:
+  schemas:
+    # --- Neuer Enum Typ ---
+    JobType:
+      type: string
+      enum:
+        - HerbCollector
+        - Lumberjack
+        - BlackSmith
+        - Miner
+      # x-enum-varnames hilft manchen Generatoren, die Namen exakt zu übernehmen
+      description: Die verfügbaren Berufe im Spiel
+
+    PlayerSkill:
+      type: object
+      required:
+        - playerSkillId
+        - skillName
+        - skillLevel
+        - currentSkillExp
+        - playerSkillExperience
+        - skillPerks
+      properties:
+        playerSkillId: { type: string, format: uuid }
+        skillName: { type: string }
+        skillLevel: { type: integer }
+        currentSkillExp: { type: integer }
+        playerSkillExperience: { $ref: '#/components/schemas/SkillExperience' }
+        skillPerks:
+          type: array
+          items: { $ref: '#/components/schemas/SkillPerk' }
+
+    SkillExperience:
+      type: object
+      required:
+        - playerSkillExperienceId
+        - currentExp
+        - currentLevel
+        - nextLevelExp
+        - maxLevel
+      properties:
+        playerSkillExperienceId: { type: string, format: uuid }
+        currentExp: { type: integer }
+        currentLevel: { type: integer }
+        nextLevelExp: { type: integer }
+        maxLevel: { type: integer }
+
+    SkillPerk:
+      type: object
+      required:
+        - skillPerkId
+        - skillPerkName
+        - skillPerkDescription
+        - skillPerkIcon
+      properties:
+        skillPerkId: { type: string, format: uuid }
+        skillPerkName: { type: string }
+        skillPerkDescription: { type: string }
+        skillPerkIcon: { type: string }
+
+    PlayerGardenField:
+      type: object
+      required:
+        - playerGardenFieldId
+        - fieldIndex
+        - isPurchased
+        - isIrrigated
+        - isFertilized
+        - price
+        - timePassed
+      properties:
+        playerGardenFieldId: { type: string, format: uuid }
+        fieldIndex: { type: integer }
+        isPurchased: { type: boolean }
+        isIrrigated: { type: boolean }
+        isFertilized: { type: boolean }
+        price: { type: integer }
+        timePassed: { type: integer }
+        gardenCrop: { $ref: '#/components/schemas/GardenCrop' }
+
+    GardenCrop:
+      type: object
+      required:
+        - gardenCropId
+        - gardenCropName
+        - duration
+        - energyCostsPlant
+        - energyCostsHarvest
+        - energyCostsFertilize
+        - energyCostsIrrigation
+        - energyCostsReplant
+        - jobType
+        - experience
+        - jobExperience
+      properties:
+        gardenCropId: { type: string, format: uuid }
+        gardenCropName: { type: string }
+        duration: { type: integer }
+        energyCostsPlant: { type: integer }
+        energyCostsHarvest: { type: integer }
+        energyCostsFertilize: { type: integer }
+        energyCostsIrrigation: { type: integer }
+        energyCostsReplant: { type: integer }
+        # Hier wird nun auf den Enum referenziert
+        jobType: { $ref: '#/components/schemas/JobType' }
+        experience: { type: integer }
+        jobExperience: { type: integer }

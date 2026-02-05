@@ -7,7 +7,7 @@ import { PageCard } from '../../../../shared/components/page-card/page-card';
 import { MoneyPipe } from '../../../../shared/pipes/money-pipe';
 import { Countdown } from '../../../../shared/components/countdown/countdown';
 import { EnergyDisplay } from '../../../../shared/components/energy-display/energy-display';
-import { GardenField } from '../../../../shared/models/player-garden';
+import { GardenField } from '../../state/garden.models';
 
 @Component({
   selector: 'app-crop-card',

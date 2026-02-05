@@ -7,10 +7,11 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { provideStore } from '@ngrx/store';
-import { booksReducer } from './core/state/app.reducer';
+import { provideState, provideStore } from '@ngrx/store';
+import { playerGardenFeature } from './features/garden/state/garden.reducer';
 import { provideEffects } from '@ngrx/effects';
-import { BookEffects } from './core/state/app.effects';
+import { playerGardenEffects } from './features/garden/state/garden.effects';
+import { provideApi } from './api-generated';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,9 +19,9 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient(),
-    provideStore({
-      books: booksReducer,
-    }),
-    provideEffects([BookEffects]),
+    provideApi('http://localhost:3000'),
+    provideStore(),
+    provideState(playerGardenFeature),
+    provideEffects(playerGardenEffects),
   ],
 };
