@@ -2,22 +2,22 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { inject } from '@angular/core';
 import { PlayerGardenActions } from './garden.actions';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { DefaultService } from '../../../api-generated';
+import { PlayerService } from '../../../api-generated';
 import { mapPlayerGardenFields } from './garden.mapper';
 
-export const loadPlayerGarden = createEffect(
-  (actions = inject(Actions), gameService = inject(DefaultService)) => {
+export const loadPlayerGardens = createEffect(
+  (actions = inject(Actions), playerService = inject(PlayerService)) => {
     return actions.pipe(
-      ofType(PlayerGardenActions.loadPlayerGarden),
+      ofType(PlayerGardenActions.loadPlayerGardens),
       switchMap(() =>
-        gameService.playerGardenGet().pipe(
+        playerService.apiPlayerGardensGet().pipe(
           map(fields =>
-            PlayerGardenActions.loadPlayerGardenSuccess({
+            PlayerGardenActions.loadPlayerGardensSuccess({
               playerGardenFields: mapPlayerGardenFields(fields),
             })
           ),
           catchError(error =>
-            of(PlayerGardenActions.loadPlayerGardenFailure({ error }))
+            of(PlayerGardenActions.loadPlayerGardensFailure({ error }))
           )
         )
       )
@@ -26,4 +26,4 @@ export const loadPlayerGarden = createEffect(
   { functional: true }
 );
 
-export const playerGardenEffects = { loadPlayerGarden };
+export const playerGardenEffects = { loadPlayerGardens };

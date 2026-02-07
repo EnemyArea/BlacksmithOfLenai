@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { PlayerQuest } from '../../../../shared/models/player-quest';
+import { PlayerQuest } from '../../state/quests.models';
 
 @Component({
   selector: 'app-quest-card-details',

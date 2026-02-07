@@ -27,13 +27,13 @@ export const playerGardenFeature = createFeature({
   reducer: createReducer(
     initialState,
 
-    on(PlayerGardenActions.loadPlayerGarden, state => ({
+    on(PlayerGardenActions.loadPlayerGardens, state => ({
       ...state,
       isLoading: true,
     })),
 
     on(
-      PlayerGardenActions.loadPlayerGardenSuccess,
+      PlayerGardenActions.loadPlayerGardensSuccess,
       (state: PlayerGardenState, { playerGardenFields }) =>
         adapter.setAll(playerGardenFields, {
           ...state,
@@ -42,7 +42,7 @@ export const playerGardenFeature = createFeature({
     ),
 
     on(
-      PlayerGardenActions.loadPlayerGardenFailure,
+      PlayerGardenActions.loadPlayerGardensFailure,
       (state: PlayerGardenState, { error }) => ({
         ...state,
         error: error,

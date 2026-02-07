@@ -13,21 +13,21 @@ import { PlayerGardenFacade } from './state/garden.facade';
   styleUrl: './garden.css',
 })
 export class Garden implements OnInit {
-  private playerGardenService = inject(PlayerGardenFacade);
+  private playerGardenFacade = inject(PlayerGardenFacade);
 
   protected readonly JobType = JobType;
   protected maxCultivableFields = 9;
 
-  protected playerGardenFields = this.playerGardenService.playerGardenFields;
+  protected playerGardenFields = this.playerGardenFacade.playerGardenFields;
 
   protected maxEnergyCostsHarvesting =
-    this.playerGardenService.maxEnergyCostsHarvest;
+    this.playerGardenFacade.maxEnergyCostsHarvest;
   protected maxEnergyCostsReplanting =
-    this.playerGardenService.maxEnergyCostsReplant;
+    this.playerGardenFacade.maxEnergyCostsReplant;
   protected maxEnergyCostsIrrigation =
-    this.playerGardenService.maxEnergyCostsIrrigation;
+    this.playerGardenFacade.maxEnergyCostsIrrigation;
   protected maxEnergyCostsFertilizing =
-    this.playerGardenService.maxEnergyCostsFertilize;
+    this.playerGardenFacade.maxEnergyCostsFertilize;
 
   protected gardenFields = signal<GardenField[]>([]);
 
@@ -67,6 +67,6 @@ export class Garden implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.playerGardenService.loadPlayerGarden();
+    this.playerGardenFacade.loadPlayerGardens();
   }
 }

@@ -1,7 +1,7 @@
-import { Component, inject, OnInit, computed } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { PageHeadline } from '../../shared/components/page-headline/page-headline';
 import { CollapsibleSkill } from './components/collapsible-skill/collapsible-skill';
-import { PlayerService } from '../../core/services/player-service';
+import { PlayerSkillFacade } from './state/skills.facade';
 
 @Component({
   selector: 'app-skills',
@@ -11,12 +11,10 @@ import { PlayerService } from '../../core/services/player-service';
   standalone: true,
 })
 export class Skills implements OnInit {
-  private _playerService = inject(PlayerService);
-  protected playerSkills = computed(() =>
-    this._playerService.getPlayerSkills()
-  );
+  private playerSkillFacade = inject(PlayerSkillFacade);
+  protected playerSkills = this.playerSkillFacade.playerSkills;
 
   public ngOnInit(): void {
-    this._playerService.loadPlayerSkills();
+    this.playerSkillFacade.loadPlayerSkills();
   }
 }

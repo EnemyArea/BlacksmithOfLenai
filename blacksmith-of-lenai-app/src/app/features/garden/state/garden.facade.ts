@@ -9,8 +9,8 @@ import { playerGardenFeature } from './garden.reducer';
 export class PlayerGardenFacade {
   private store = inject(Store);
 
-  public loadPlayerGarden(): void {
-    this.store.dispatch(PlayerGardenActions.loadPlayerGarden());
+  public loadPlayerGardens(): void {
+    this.store.dispatch(PlayerGardenActions.loadPlayerGardens());
   }
 
   public readonly playerGardenFields = this.store.selectSignal(

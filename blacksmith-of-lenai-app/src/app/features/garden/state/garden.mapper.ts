@@ -51,6 +51,7 @@ export function mapGardenCrop(
 
 export function mapJobType(serverJobType: ServerJobType): JobType {
   const mapping: Record<ServerJobType, JobType> = {
+    [ServerJobType.Unknown]: JobType.Unkown,
     [ServerJobType.HerbCollector]: JobType.HerbCollector,
     [ServerJobType.Lumberjack]: JobType.Lumberjack,
     [ServerJobType.BlackSmith]: JobType.BlackSmith,

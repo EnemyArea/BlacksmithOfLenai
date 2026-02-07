@@ -1,8 +1,8 @@
 import { Component, input } from '@angular/core';
 import { PageSubHeadline } from '../../../../shared/components/page-sub-headline/page-sub-headline';
-import { PlayerQuest } from '../../../../shared/models/player-quest';
 import { QuestCardDetails } from '../quest-card-details/quest-card-details';
 import { QuestCardRewards } from '../quest-card-rewards/quest-card-rewards';
+import { PlayerQuest } from '../../state/quests.models';
 
 @Component({
   selector: 'app-quest-card',

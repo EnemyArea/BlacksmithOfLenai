@@ -5,11 +5,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 export const PlayerGardenActions = createActionGroup({
   source: 'playerGarden',
   events: {
-    LoadPlayerGarden: emptyProps(),
-    LoadPlayerGardenSuccess: props<{
+    LoadPlayerGardens: emptyProps(),
+    LoadPlayerGardensSuccess: props<{
       playerGardenFields: PlayerGardenField[];
     }>(),
-    loadPlayerGardenFailure: props<{
+    loadPlayerGardensFailure: props<{
       error: HttpErrorResponse;
     }>(),
 

@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { SkillPerk } from '../skill-perk/skill-perk';
 import { SkillRating } from '../../../../shared/components/skill-rating/skill-rating';
-import { PlayerSkill } from '../../../../shared/models/player-skill';
+import { PlayerSkill } from '../../state/skills.models';
 
 @Component({
   selector: 'app-collapsible-skill',
