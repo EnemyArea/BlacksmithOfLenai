@@ -4,7 +4,6 @@ import { Component, ElementRef, input, ViewChild } from '@angular/core';
   selector: 'app-action-card-dialog',
   imports: [],
   templateUrl: './action-card-dialog.html',
-  styleUrl: './action-card-dialog.css',
   host: {
     class: 'card soft-gradient text-neutral-content w-96',
   },

@@ -12,7 +12,6 @@ import {
   selector: 'app-countdown',
   standalone: true,
   templateUrl: './countdown.html',
-  styleUrl: './countdown.css',
 })
 export class Countdown implements OnInit, OnDestroy {
   private interval = 0;

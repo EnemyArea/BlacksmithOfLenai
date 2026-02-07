@@ -7,7 +7,6 @@ import { ActionCard } from '../../shared/components/action-card/action-card';
   selector: 'app-waypoints',
   imports: [PageHeadline, ActionCard],
   templateUrl: './waypoints.html',
-  styleUrl: './waypoints.css',
 })
 export class Waypoints {
   protected readonly JobType = JobType;

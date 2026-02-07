@@ -5,7 +5,6 @@ import { CharacterStatusData } from '../../../../shared/models/character-status-
   selector: 'app-character-status-list',
   imports: [],
   templateUrl: './character-status-list.html',
-  styleUrl: './character-status-list.css',
 })
 export class CharacterStatusList {
   public readonly characterStatusList = input.required<CharacterStatusData[]>();

@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-game-menu',
   imports: [],
   templateUrl: './game-menu.html',
-  styleUrl: './game-menu.css',
 })
 export class GameMenu {}

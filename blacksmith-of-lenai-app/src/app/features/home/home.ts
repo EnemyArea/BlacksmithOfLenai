@@ -5,6 +5,5 @@ import { PageHeadline } from '../../shared/components/page-headline/page-headlin
   selector: 'app-home',
   imports: [PageHeadline],
   templateUrl: './home.html',
-  styleUrl: './home.css',
 })
 export class Home {}

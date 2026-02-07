@@ -4,7 +4,6 @@ import { Component, input } from '@angular/core';
   selector: 'app-collapsible-teaser',
   imports: [],
   templateUrl: './collapsible-teaser.html',
-  styleUrl: './collapsible-teaser.css',
 })
 export class CollapsibleTeaser {
   public readonly teaserTitle = input.required<string>();

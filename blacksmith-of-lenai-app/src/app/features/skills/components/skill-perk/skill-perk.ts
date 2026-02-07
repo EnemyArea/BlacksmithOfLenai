@@ -5,7 +5,6 @@ import { SkillPerkData } from '../../../../shared/models/skill-perk-data';
   selector: 'app-skill-perk',
   imports: [],
   templateUrl: './skill-perk.html',
-  styleUrl: './skill-perk.css',
 })
 export class SkillPerk {
   public readonly skillPerkData = input.required<SkillPerkData>();

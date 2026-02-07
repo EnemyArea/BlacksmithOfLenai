@@ -7,6 +7,5 @@ import { PageSubHeadline } from '../../../../shared/components/page-sub-headline
   selector: 'app-character-status',
   imports: [CharacterStatusList, PageCard, PageSubHeadline],
   templateUrl: './character-status.html',
-  styleUrl: './character-status.css',
 })
 export class CharacterStatus {}

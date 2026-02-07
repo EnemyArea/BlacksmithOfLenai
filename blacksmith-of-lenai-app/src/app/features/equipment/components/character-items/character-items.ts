@@ -6,6 +6,5 @@ import { PageSubHeadline } from '../../../../shared/components/page-sub-headline
   selector: 'app-character-items',
   imports: [PageCard, PageSubHeadline],
   templateUrl: './character-items.html',
-  styleUrl: './character-items.css',
 })
 export class CharacterItems {}

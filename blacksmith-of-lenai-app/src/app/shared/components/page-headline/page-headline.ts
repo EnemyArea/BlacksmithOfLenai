@@ -4,7 +4,6 @@ import { Component, input } from '@angular/core';
   selector: 'app-page-headline',
   imports: [],
   templateUrl: './page-headline.html',
-  styleUrl: './page-headline.css',
 })
 export class PageHeadline {
   public readonly headline = input.required<string>();

@@ -7,7 +7,6 @@ import { PlayerSkill } from '../../state/skills.models';
   selector: 'app-collapsible-skill',
   imports: [SkillRating, SkillPerk],
   templateUrl: './collapsible-skill.html',
-  styleUrl: './collapsible-skill.css',
 })
 export class CollapsibleSkill {
   public readonly playerSkill = input.required<PlayerSkill>();

@@ -10,7 +10,6 @@ import { newGuid } from '../../../../shared/helper/guid';
   selector: 'app-mine-vein-card',
   imports: [ActionCosts, SkillRating, PageCard],
   templateUrl: './mine-vein-card.html',
-  styleUrl: './mine-vein-card.css',
   host: {
     class: ' flex-auto lg:flex-none lg:w-96',
   },

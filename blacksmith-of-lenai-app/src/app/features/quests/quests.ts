@@ -8,7 +8,6 @@ import { PlayerQuestFacade } from './state/quests.facade';
   selector: 'app-quests',
   imports: [PageHeadline, QuestTabs, QuestCard],
   templateUrl: './quests.html',
-  styleUrl: './quests.css',
 })
 export class Quests implements OnInit {
   private playerQuestFacade = inject(PlayerQuestFacade);

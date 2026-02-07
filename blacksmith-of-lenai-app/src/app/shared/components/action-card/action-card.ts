@@ -7,7 +7,6 @@ import { PageCard } from '../page-card/page-card';
   selector: 'app-action-card',
   imports: [ActionCosts, PageCard],
   templateUrl: './action-card.html',
-  styleUrl: './action-card.css',
   host: {
     class: 'card soft-gradient text-neutral-content w-96',
   },

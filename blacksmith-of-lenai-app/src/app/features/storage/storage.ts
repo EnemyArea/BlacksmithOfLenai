@@ -10,7 +10,6 @@ import { PlayerStorageFacade } from './state/storages.facade';
   selector: 'app-storage',
   imports: [PageHeadline, PageCard, ItemRenderer, StorageTabs, StorageToolbar],
   templateUrl: './storage.html',
-  styleUrl: './storage.css',
 })
 export class Storage implements OnInit {
   private playerStorageFacade = inject(PlayerStorageFacade);

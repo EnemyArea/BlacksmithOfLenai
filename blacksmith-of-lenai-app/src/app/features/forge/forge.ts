@@ -10,7 +10,6 @@ import { newGuid } from '../../shared/helper/guid';
   selector: 'app-forge',
   imports: [PageHeadline, ActionCosts, SkillRating],
   templateUrl: './forge.html',
-  styleUrl: './forge.css',
 })
 export class Forge {
   protected fields: number[] = [...Array(8).keys()];

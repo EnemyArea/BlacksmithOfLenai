@@ -6,7 +6,6 @@ import { CropStatusBarIcon } from '../crop-status-bar-icon/crop-status-bar-icon'
   selector: 'app-crop-status-bar',
   imports: [CropStatusBarIcon],
   templateUrl: './crop-status-bar.html',
-  styleUrl: './crop-status-bar.css',
 })
 export class CropStatusBar {
   protected readonly CropStatus = CropStatus;

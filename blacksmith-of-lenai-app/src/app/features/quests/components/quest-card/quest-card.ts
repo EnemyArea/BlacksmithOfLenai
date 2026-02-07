@@ -8,7 +8,6 @@ import { PlayerQuest } from '../../state/quests.models';
   selector: 'app-quest-card',
   imports: [PageSubHeadline, QuestCardDetails, QuestCardRewards],
   templateUrl: './quest-card.html',
-  styleUrl: './quest-card.css',
 })
 export class QuestCard {
   public readonly playerQuest = input.required<PlayerQuest | undefined>();

@@ -6,7 +6,6 @@ import { JobType } from '../../enums/job-type';
   selector: 'app-action-costs',
   imports: [DurationPipe],
   templateUrl: './action-costs.html',
-  styleUrl: './action-costs.css',
 })
 export class ActionCosts {
   public readonly energyCosts = input<number>();

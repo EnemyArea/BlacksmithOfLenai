@@ -10,7 +10,6 @@ import { PlayerGardenFacade } from './state/garden.facade';
   selector: 'app-garden',
   imports: [PageHeadline, CropCard, EnergyDisplay],
   templateUrl: './garden.html',
-  styleUrl: './garden.css',
 })
 export class Garden implements OnInit {
   private playerGardenFacade = inject(PlayerGardenFacade);

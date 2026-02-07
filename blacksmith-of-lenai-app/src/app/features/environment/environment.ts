@@ -9,7 +9,6 @@ import { PageSubHeadline } from '../../shared/components/page-sub-headline/page-
   selector: 'app-environment',
   imports: [PageSubHeadline, CollapsibleTeaser, ActionCard, ActionCardDialog],
   templateUrl: './environment.html',
-  styleUrl: './environment.css',
 })
 export class Environment {
   @ViewChild('shieldDialog') protected shieldDialog!: ActionCardDialog;

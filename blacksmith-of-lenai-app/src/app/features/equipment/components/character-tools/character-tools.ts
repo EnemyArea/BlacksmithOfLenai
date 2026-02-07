@@ -9,7 +9,6 @@ import { newGuid } from '../../../../shared/helper/guid';
   selector: 'app-character-tools',
   imports: [PageCard, PageSubHeadline, SkillRating],
   templateUrl: './character-tools.html',
-  styleUrl: './character-tools.css',
 })
 export class CharacterTools {
   protected playerSkillExperience: PlayerSkillExperience = {

@@ -7,7 +7,6 @@ import { PlayerSkillFacade } from './state/skills.facade';
   selector: 'app-skills',
   imports: [PageHeadline, CollapsibleSkill],
   templateUrl: './skills.html',
-  styleUrl: './skills.css',
   standalone: true,
 })
 export class Skills implements OnInit {

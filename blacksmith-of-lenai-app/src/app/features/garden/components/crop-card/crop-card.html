@@ -1,16 +1,21 @@
 <app-page-card>
+  <div class="p-2" card-header>
+    <h2 class="card-title">
+      @if (!gardenField().isPurchased) {
+        Brachliegendes Feld
+      } @else {
+        {{ gardenField().gardenCrop?.gardenCropName ?? 'Nichts gepflanzt' }}
+      }
+    </h2>
+  </div>
+
   @if (!gardenField().isPurchased) {
-    <h2 class="card-title">Kaufen</h2>
     <p>🪙 {{ gardenField().price | money }}</p>
     <div class="flex flex-row flex-wrap gap-1 items-stretch">
-      <button class="btn">💰</button>
+      <button class="btn">💰 Kaufen</button>
     </div>
   } @else {
     @if (gardenField().gardenCrop; as gardenCrop) {
-      <h2 class="card-title">
-        {{ gardenCrop.gardenCropName }}
-      </h2>
-
       @if (gardenField().playerSkillExperience; as playerSkillExperience) {
         <app-skill-rating [playerSkillExperience]="playerSkillExperience" />
       }
@@ -32,33 +37,22 @@
 
       <div class="grid grid-cols-4 gap-1">
         <button class="btn text-nowrap" [disabled]="!canHarvested()">
-          🧺
-          <app-energy-display [energy]="gardenCrop.energyCostsHarvest" />
+          🧺 <app-energy-display [energy]="gardenCrop.energyCostsHarvest" />
         </button>
         <button class="btn text-nowrap" [disabled]="!canReplanted()">
-          🌱
-          <app-energy-display [energy]="gardenCrop.energyCostsReplant" />
+          🌱 <app-energy-display [energy]="gardenCrop.energyCostsReplant" />
         </button>
-        <button
-          class="btn text-nowrap"
-          [disabled]="!canIrrigated()"
-          (click)="irrigateCropHandler()">
-          💧
-          <app-energy-display [energy]="gardenCrop.energyCostsIrrigation" />
+        <button class="btn text-nowrap" [disabled]="!canIrrigated()" (click)="irrigateCropHandler()">
+          💧 <app-energy-display [energy]="gardenCrop.energyCostsIrrigation" />
         </button>
-        <button
-          class="btn text-nowrap"
-          [disabled]="!canFertilized()"
-          (click)="fertilizeCropHandler()">
-          ⌛
-          <app-energy-display [energy]="gardenCrop.energyCostsFertilize" />
+        <button class="btn text-nowrap" [disabled]="!canFertilized()" (click)="fertilizeCropHandler()">
+          ⌛ <app-energy-display [energy]="gardenCrop.energyCostsFertilize" />
         </button>
       </div>
     } @else {
-      <h2 class="card-title">Nichts gepflanzt</h2>
       <p>Min. Stufe 3 Landwirtschaft</p>
       <div class="flex flex-row flex-wrap gap-1 items-stretch">
-        <button class="btn">🌱</button>
+        <button class="btn">🌱 Bepflanzen</button>
       </div>
     }
   }

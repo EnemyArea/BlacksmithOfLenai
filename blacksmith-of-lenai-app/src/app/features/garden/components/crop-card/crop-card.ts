@@ -21,7 +21,6 @@ import { GardenField } from '../../state/garden.models';
     EnergyDisplay,
   ],
   templateUrl: './crop-card.html',
-  styleUrl: './crop-card.css',
 })
 export class CropCard {
   protected readonly JobType = JobType;

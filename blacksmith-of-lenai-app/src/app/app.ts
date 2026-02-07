@@ -8,6 +8,5 @@ import { GamePlayerTop } from './shared/components/game-player-top/game-player-t
   selector: 'app-root',
   imports: [RouterOutlet, ActionFooter, GameMenu, GamePlayerTop],
   templateUrl: './app.html',
-  styleUrl: './app.css',
 })
 export class App {}

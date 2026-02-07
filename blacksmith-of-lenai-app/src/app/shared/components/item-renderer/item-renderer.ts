@@ -5,7 +5,6 @@ import { ItemData } from '../../models/item-data';
   selector: 'app-item-renderer',
   imports: [],
   templateUrl: './item-renderer.html',
-  styleUrl: './item-renderer.css',
 })
 export class ItemRenderer {
   public readonly itemData = input.required<ItemData | undefined>();

@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-quest-tabs',
   imports: [],
   templateUrl: './quest-tabs.html',
-  styleUrl: './quest-tabs.css',
 })
 export class QuestTabs {}

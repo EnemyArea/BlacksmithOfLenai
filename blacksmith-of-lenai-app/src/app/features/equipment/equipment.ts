@@ -8,6 +8,5 @@ import { CharacterItems } from './components/character-items/character-items';
   selector: 'app-equipment',
   imports: [PageHeadline, CharacterStatus, CharacterTools, CharacterItems],
   templateUrl: './equipment.html',
-  styleUrl: './equipment.css',
 })
 export class Equipment {}

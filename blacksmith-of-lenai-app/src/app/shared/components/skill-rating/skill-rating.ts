@@ -5,7 +5,6 @@ import { PlayerSkillExperience } from '../../models/player-skill-experience';
   selector: 'app-skill-rating',
   imports: [],
   templateUrl: './skill-rating.html',
-  styleUrl: './skill-rating.css',
 })
 export class SkillRating {
   public readonly playerSkillExperience =

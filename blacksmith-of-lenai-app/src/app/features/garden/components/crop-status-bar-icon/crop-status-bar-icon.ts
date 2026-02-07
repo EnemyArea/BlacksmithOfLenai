@@ -5,7 +5,6 @@ import { CropStatus } from '../../../../shared/enums/crop-status';
   selector: 'app-crop-status-bar-icon',
   imports: [],
   templateUrl: './crop-status-bar-icon.html',
-  styleUrl: './crop-status-bar-icon.css',
 })
 export class CropStatusBarIcon {
   public readonly cropStatus = input.required<CropStatus>();

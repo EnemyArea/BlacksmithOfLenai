@@ -8,7 +8,6 @@ import { MineVeinCard } from './components/mine-vein-card/mine-vein-card';
   selector: 'app-mine',
   imports: [PageHeadline, PageSubHeadline, MineVeinCard],
   templateUrl: './mine.html',
-  styleUrl: './mine.css',
 })
 export class Mine {
   protected fields: number[] = [...Array(9).keys()];
